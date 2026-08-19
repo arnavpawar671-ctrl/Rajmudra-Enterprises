@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "GG Sans";
+  src: url("/fonts/gg-sans.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --radius: 0.75rem;
 
@@ -28,9 +36,9 @@
 
   --shadow-card: 0 20px 45px -25px rgba(3, 6, 12, 0.9);
 
-  /* Typography */
-  --font-display: "Google Sans Flex", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "Google Sans Flex", ui-sans-serif, system-ui, sans-serif;
+  /* GG Sans everywhere */
+  --font-display: "GG Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-sans: "GG Sans", "Helvetica Neue", Arial, sans-serif;
 
   color-scheme: dark;
 }
@@ -90,7 +98,6 @@ body {
   background: var(--background);
   color: var(--foreground);
 
-  /* Fixed Comic Sans issue */
   font-family: var(--font-sans);
 
   -webkit-font-smoothing: antialiased;
@@ -102,8 +109,22 @@ body {
 h1,
 h2,
 h3,
-h4 {
+h4,
+h5,
+h6,
+button,
+input,
+textarea,
+select {
   font-family: var(--font-display);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   letter-spacing: -0.02em;
   font-weight: 600;
 }
@@ -148,6 +169,7 @@ ul {
 .eyebrow {
   font-family: var(--font-display);
   font-size: 0.75rem;
+  font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--primary);
@@ -185,14 +207,16 @@ ul {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   gap: 0.5rem;
 
   border-radius: 999px;
+
   padding: 0.75rem 1.5rem;
 
   font-family: var(--font-sans);
   font-size: 0.875rem;
-  font-weight: 500;
+  font-weight: 600;
 
   background: var(--primary);
   color: var(--primary-foreground);
@@ -230,6 +254,7 @@ ul {
 
   stroke: currentColor;
   fill: none;
+
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -238,6 +263,7 @@ ul {
 .icon-lg {
   width: 1.5rem;
   height: 1.5rem;
+
   stroke: var(--primary);
 }
 
@@ -249,6 +275,7 @@ ul {
 .site-header {
   position: fixed;
   inset: 0 0 auto 0;
+
   z-index: 50;
 
   border-bottom: 1px solid var(--border);
@@ -277,30 +304,39 @@ ul {
 .brand {
   display: flex;
   align-items: center;
+
   gap: 0.75rem;
 }
 
 .brand img {
   width: 2.25rem;
   height: 2.25rem;
+
   object-fit: contain;
 }
 
 .brand span {
   font-family: var(--font-display);
+
   font-size: 1rem;
   font-weight: 600;
+
   letter-spacing: -0.01em;
 }
 
 .desktop-nav {
   display: none;
+
   align-items: center;
+
   gap: 1.75rem;
 }
 
 .desktop-nav a.navlink {
+  font-family: var(--font-sans);
+
   font-size: 0.875rem;
+
   color: var(--muted-foreground);
 
   transition: color 0.2s ease;
@@ -325,6 +361,7 @@ ul {
   border-radius: 0.5rem;
 
   background: transparent;
+
   color: inherit;
 
   cursor: pointer;
@@ -350,6 +387,7 @@ ul {
   padding: 0.75rem 0;
 
   font-size: 0.875rem;
+
   color: var(--muted-foreground);
 
   border-bottom: 1px solid var(--border);
@@ -357,7 +395,9 @@ ul {
 
 .mobile-nav .btn {
   margin-top: 1rem;
+
   width: 100%;
+
   justify-content: center;
 }
 
@@ -368,7 +408,9 @@ ul {
 
 .hero {
   position: relative;
+
   isolation: isolate;
+
   overflow: hidden;
 
   padding: 7rem 0 5rem;
@@ -376,6 +418,7 @@ ul {
 
 .hero-bg {
   position: absolute;
+
   inset: 0;
 
   z-index: -2;
@@ -388,6 +431,7 @@ ul {
 
 .hero-overlay {
   position: absolute;
+
   inset: 0;
 
   z-index: -1;
@@ -401,7 +445,10 @@ ul {
   max-width: 48rem;
 
   font-size: 2.25rem;
+
   line-height: 1.05;
+
+  font-weight: 700;
 }
 
 .hero p.lead {
@@ -416,6 +463,7 @@ ul {
   margin-top: 2.25rem;
 
   display: flex;
+
   flex-wrap: wrap;
 
   gap: 0.75rem;
@@ -430,6 +478,7 @@ ul {
   margin-top: 3.5rem;
 
   display: grid;
+
   grid-template-columns: repeat(2, 1fr);
 
   gap: 1px;
@@ -437,6 +486,7 @@ ul {
   background: var(--border);
 
   border: 1px solid var(--border);
+
   border-radius: 0.75rem;
 
   overflow: hidden;
@@ -446,7 +496,6 @@ ul {
   background: rgba(28, 37, 52, 0.9);
 
   backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
 
   padding: 1.5rem 1.25rem;
 }
@@ -455,7 +504,8 @@ ul {
   font-family: var(--font-display);
 
   font-size: 1.5rem;
-  font-weight: 600;
+
+  font-weight: 700;
 
   color: var(--primary);
 }
@@ -466,6 +516,7 @@ ul {
   font-size: 0.75rem;
 
   text-transform: uppercase;
+
   letter-spacing: 0.08em;
 
   color: var(--muted-foreground);
@@ -478,6 +529,7 @@ ul {
 
 section.band {
   border-top: 1px solid var(--border);
+
   border-bottom: 1px solid var(--border);
 
   background: rgba(28, 37, 52, 0.4);
@@ -485,12 +537,16 @@ section.band {
 
 .section {
   padding-top: 5rem;
+
   padding-bottom: 5rem;
 }
 
 .section h2 {
   margin-top: 0.75rem;
+
   font-size: 1.875rem;
+
+  font-weight: 700;
 }
 
 .section > .lead {
@@ -545,9 +601,9 @@ section.band {
 }
 
 .service-card > img {
-  height: 13rem;
-
   width: 100%;
+
+  height: 13rem;
 
   object-fit: cover;
 }
@@ -560,6 +616,8 @@ section.band {
   margin-top: 1rem;
 
   font-size: 1.25rem;
+
+  font-weight: 600;
 }
 
 .service-body p {
@@ -580,6 +638,7 @@ section.band {
 
 .service-body li {
   display: flex;
+
   align-items: center;
 
   gap: 0.5rem;
@@ -598,6 +657,7 @@ section.band {
   gap: 3rem;
 
   padding-top: 5rem;
+
   padding-bottom: 5rem;
 }
 
@@ -619,6 +679,7 @@ section.band {
 
 .about-badges div {
   display: flex;
+
   align-items: center;
 
   gap: 0.75rem;
@@ -634,6 +695,7 @@ section.band {
 
 .about-img {
   width: 100%;
+
   height: 100%;
 
   object-fit: cover;
@@ -659,9 +721,9 @@ section.band {
 }
 
 .product-card img {
-  height: 11rem;
-
   width: 100%;
+
+  height: 11rem;
 
   object-fit: cover;
 
@@ -695,11 +757,13 @@ section.band {
   gap: 1.5rem;
 
   padding-top: 5rem;
+
   padding-bottom: 5rem;
 }
 
 .pay-item {
   display: flex;
+
   align-items: flex-start;
 
   gap: 1rem;
@@ -709,19 +773,21 @@ section.band {
 
 .pay-item h3 {
   font-size: 0.875rem;
+
+  font-weight: 600;
 }
 
 .pay-item dl,
 .pay-item p {
   margin-top: 0.5rem;
 
-  font-size: 0.875rem;
-
-  color: var(--muted-foreground);
-
   display: grid;
 
   gap: 0.25rem;
+
+  font-size: 0.875rem;
+
+  color: var(--muted-foreground);
 }
 
 
@@ -737,6 +803,8 @@ section.band {
   margin-top: 1rem;
 
   font-size: 1rem;
+
+  font-weight: 600;
 }
 
 .contact-card p {
@@ -753,9 +821,11 @@ section.band {
   padding: 1.75rem;
 
   display: flex;
+
   flex-wrap: wrap;
 
   align-items: center;
+
   justify-content: space-between;
 
   gap: 1rem;
@@ -827,11 +897,13 @@ section.band {
   display: inline-flex;
 
   align-items: center;
+
   justify-content: center;
 
   gap: 0.45rem;
 
   width: 2.5rem;
+
   height: 2.5rem;
 
   border: 1px solid var(--border);
@@ -870,6 +942,7 @@ html[data-theme="light"] .theme-toggle .theme-moon {
 
 .mobile-theme-toggle {
   width: 100%;
+
   height: auto;
 
   padding: 0.75rem 1rem;
@@ -889,7 +962,7 @@ html[data-theme="light"] .theme-toggle .theme-moon {
 
 
 /* =========================================================
-   DARK / LIGHT THEME DETAILS
+   LIGHT THEME DETAILS
    ========================================================= */
 
 html[data-theme="light"] .site-header {
@@ -944,15 +1017,16 @@ html[data-theme="light"] .eyebrow {
 }
 
 html[data-theme="light"] .gradient-text {
-  color: var(--primary);
-
   background-image: var(--gradient-accent);
+
+  color: var(--primary);
 }
 
 html[data-theme="light"] .hero::after {
   content: "";
 
   position: absolute;
+
   inset: 0;
 
   z-index: -1;
@@ -972,6 +1046,7 @@ html[data-theme="dark"] .hero::after {
   content: "";
 
   position: absolute;
+
   inset: 0;
 
   z-index: -1;
@@ -1037,6 +1112,7 @@ html[data-theme="dark"] .hero::after {
 
   .section {
     padding-top: 7rem;
+
     padding-bottom: 7rem;
   }
 
@@ -1061,6 +1137,7 @@ html[data-theme="dark"] .hero::after {
     grid-template-columns: repeat(2, 1fr);
 
     padding-top: 7rem;
+
     padding-bottom: 7rem;
   }
 
@@ -1110,13 +1187,13 @@ html[data-theme="dark"] .hero::after {
     display: none;
   }
 
-  .hero h1 {
-    font-size: 2.25rem;
-  }
-
   .hero {
     padding-left: 0;
     padding-right: 0;
+  }
+
+  .hero h1 {
+    font-size: 2.25rem;
   }
 
   .stats {
