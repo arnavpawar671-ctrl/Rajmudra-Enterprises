@@ -2497,3 +2497,22 @@ button:focus-visible {
         transform: none;
     }
 }
+
+/* Remove square border/background around logo */
+.brand-symbol {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+}
+
+.brand-symbol img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    display: block;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
