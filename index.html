@@ -1,37 +1,21 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>
-        Rajmudra Enterprises | IT Hardware, CCTV & Security Systems
-    </title>
+    <title>Rajmudra Enterprises | IT Hardware, CCTV & Security Systems</title>
 
     <meta
         name="description"
         content="Rajmudra Enterprises provides IT hardware, networking, CCTV e-surveillance, access control, fire alarm and security solutions for businesses across Mumbai and Thane."
     >
 
-    <meta
-        name="author"
-        content="Rajmudra Enterprises"
-    >
+    <meta name="author" content="Rajmudra Enterprises">
+    <meta name="theme-color" content="#07090d">
 
-    <meta
-        name="theme-color"
-        content="#07090d"
-    >
-
-    <link
-        rel="icon"
-        href="/favicon.png"
-        type="image/png"
-    >
+    <link rel="icon" href="/favicon.png" type="image/png">
 
     <link
         rel="canonical"
@@ -46,55 +30,30 @@
         rel="stylesheet"
     >
 
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- =====================================================
-         PAGE LOADER
-         ===================================================== -->
-
+    <!-- Page Loader -->
     <div class="page-loader" id="pageLoader">
         <div class="loader-mark">
             <span></span>
             <span></span>
             <span></span>
         </div>
-
         <p>RAJMUDRA ENTERPRISES</p>
     </div>
 
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
 
-    <!-- =====================================================
-         SCROLL PROGRESS
-         ===================================================== -->
-
-    <div
-        class="scroll-progress"
-        id="scrollProgress"
-    ></div>
-
-
-    <!-- =====================================================
-         AMBIENT LIGHT
-         ===================================================== -->
-
+    <!-- Ambient Background -->
     <div class="ambient ambient-one"></div>
     <div class="ambient ambient-two"></div>
 
-
-    <!-- =====================================================
-         HEADER
-         ===================================================== -->
-
-    <header
-        class="site-header"
-        id="siteHeader"
-    >
+    <!-- Header -->
+    <header class="site-header" id="siteHeader">
 
         <div class="header-inner">
 
@@ -103,7 +62,6 @@
                 class="brand"
                 aria-label="Rajmudra Enterprises home"
             >
-
                 <div class="brand-symbol">
                     <span>R</span>
                 </div>
@@ -112,168 +70,94 @@
                     RAJMUDRA
                     <small>ENTERPRISES</small>
                 </div>
-
             </a>
 
-
-            <nav
-                class="desktop-nav"
-                aria-label="Main navigation"
-            >
-
-                <a href="#solutions">
-                    Solutions
-                </a>
-
-                <a href="#about">
-                    About
-                </a>
-
-                <a href="#products">
-                    Products
-                </a>
-
-                <a href="#payments">
-                    Payments
-                </a>
-
-                <a href="#contact">
-                    Contact
-                </a>
-
+            <nav class="desktop-nav" aria-label="Main navigation">
+                <a href="#solutions">Solutions</a>
+                <a href="#about">About</a>
+                <a href="#products">Products</a>
+                <a href="#payments">Payments</a>
+                <a href="#contact">Contact</a>
             </nav>
 
-
-            <a
-                href="#contact"
-                class="header-cta"
-            >
+            <a href="#contact" class="header-cta">
                 <span>Get a quote</span>
                 <b>↗</b>
             </a>
 
-
             <button
                 class="menu-btn"
                 id="menuBtn"
+                type="button"
                 aria-label="Open menu"
                 aria-expanded="false"
+                aria-controls="mobileNav"
             >
-
                 <span></span>
                 <span></span>
-
             </button>
 
         </div>
 
-
-        <!-- MOBILE NAV -->
-
+        <!-- Mobile Navigation -->
         <nav
             class="mobile-nav"
             id="mobileNav"
             aria-label="Mobile navigation"
         >
+            <a href="#solutions">Solutions</a>
+            <a href="#about">About</a>
+            <a href="#products">Products</a>
+            <a href="#payments">Payments</a>
+            <a href="#contact">Contact</a>
 
-            <a href="#solutions">
-                Solutions
-            </a>
-
-            <a href="#about">
-                About
-            </a>
-
-            <a href="#products">
-                Products
-            </a>
-
-            <a href="#payments">
-                Payments
-            </a>
-
-            <a href="#contact">
-                Contact
-            </a>
-
-            <a
-                href="#contact"
-                class="mobile-nav-cta"
-            >
+            <a href="#contact" class="mobile-nav-cta">
                 Request a quote ↗
             </a>
-
         </nav>
 
     </header>
 
-
     <main id="top">
 
-
-        <!-- =================================================
-             HERO
-             ================================================= -->
-
-        <section
-            class="hero"
-            id="home"
-        >
+        <!-- Hero -->
+        <section class="hero" id="home">
 
             <div class="hero-background">
-
                 <div
                     class="hero-image"
                     data-parallax="0.12"
                 ></div>
 
                 <div class="hero-overlay"></div>
-
                 <div class="hero-grid"></div>
-
             </div>
-
 
             <div class="container hero-container">
 
                 <div class="hero-content">
 
-                    <div
-                        class="hero-kicker reveal"
-                    >
+                    <div class="hero-kicker reveal">
                         <span class="status-dot"></span>
-
                         Enterprise Technology & Security
-
                     </div>
 
-
                     <h1 class="reveal reveal-delay">
-
                         Infrastructure
                         <span>that works.</span>
-
                         <br>
-
                         Security
                         <span>that stays.</span>
-
                     </h1>
 
-
-                    <p
-                        class="hero-description reveal reveal-delay-2"
-                    >
+                    <p class="hero-description reveal reveal-delay-2">
                         IT hardware, networking and intelligent
                         security systems designed for businesses
                         that expect reliability from every layer
                         of their workplace.
                     </p>
 
-
-                    <div
-                        class="hero-actions reveal reveal-delay-3"
-                    >
+                    <div class="hero-actions reveal reveal-delay-3">
 
                         <a
                             href="#contact"
@@ -293,96 +177,56 @@
 
                     </div>
 
-
-                    <div
-                        class="hero-location reveal reveal-delay-3"
-                    >
-
+                    <div class="hero-location reveal reveal-delay-3">
                         <span class="location-line"></span>
-
                         Serving businesses across
                         <strong>Mumbai & Thane</strong>
-
                     </div>
 
                 </div>
 
-
-                <!-- HERO STATS -->
-
+                <!-- Hero Stats -->
                 <div class="hero-stats">
 
                     <div class="stat reveal">
-
                         <strong
                             class="counter"
                             data-target="6"
-                        >
-                            0
-                        </strong>
-
+                        >0</strong>
                         <span>Years of service</span>
-
                     </div>
 
-
                     <div class="stat reveal reveal-delay">
-
                         <strong
                             class="counter"
                             data-target="5"
-                        >
-                            0
-                        </strong>
-
+                        >0</strong>
                         <span>Core solutions</span>
-
                     </div>
-
 
                     <div class="stat reveal reveal-delay-2">
-
                         <strong>24/7</strong>
-
                         <span>Surveillance focus</span>
-
                     </div>
 
-
                     <div class="stat reveal reveal-delay-3">
-
                         <strong>100%</strong>
-
                         <span>Service commitment</span>
-
                     </div>
 
                 </div>
 
-
                 <div class="hero-bottom">
-
-                    <span>
-                        Scroll to explore
-                    </span>
-
-                    <span class="scroll-arrow">
-                        ↓
-                    </span>
-
+                    <span>Scroll to explore</span>
+                    <span class="scroll-arrow">↓</span>
                 </div>
 
             </div>
 
         </section>
 
-
-        <!-- =================================================
-             MARQUEE
-             ================================================= -->
-
+        <!-- Marquee -->
         <div class="marquee">
-
             <div class="marquee-track">
 
                 <span>IT INFRASTRUCTURE</span>
@@ -421,14 +265,9 @@
                 <span>AMC & SUPPORT</span>
 
             </div>
-
         </div>
 
-
-        <!-- =================================================
-             SOLUTIONS
-             ================================================= -->
-
+        <!-- Solutions -->
         <section
             class="section solutions-section"
             id="solutions"
@@ -439,20 +278,15 @@
                 <div class="section-intro-grid">
 
                     <div>
-
                         <span class="section-number">
                             01 / Solutions
                         </span>
 
                         <h2 class="section-title reveal">
-
                             One partner for the
                             <span>critical layers.</span>
-
                         </h2>
-
                     </div>
-
 
                     <p class="section-description reveal">
                         From the devices on your desks to the
@@ -463,36 +297,24 @@
 
                 </div>
 
-
                 <div class="solution-list">
 
+                    <!-- Solution 01 -->
+                    <article class="solution-card reveal">
 
-                    <!-- SOLUTION 01 -->
-
-                    <article
-                        class="solution-card reveal"
-                    >
-
-                        <div class="solution-number">
-                            01
-                        </div>
-
+                        <div class="solution-number">01</div>
 
                         <div class="solution-visual">
-
                             <div class="image-placeholder hardware-image"></div>
 
                             <div class="visual-tag">
                                 INFRASTRUCTURE
                             </div>
-
                         </div>
-
 
                         <div class="solution-content">
 
                             <div>
-
                                 <span class="small-label">
                                     Infrastructure
                                 </span>
@@ -509,25 +331,12 @@
                                     from quality-assured vendors.
                                 </p>
 
-
                                 <ul>
-
-                                    <li>
-                                        Workstations & servers
-                                    </li>
-
-                                    <li>
-                                        Networking & Wi-Fi
-                                    </li>
-
-                                    <li>
-                                        AMC & on-site support
-                                    </li>
-
+                                    <li>Workstations & servers</li>
+                                    <li>Networking & Wi-Fi</li>
+                                    <li>AMC & on-site support</li>
                                 </ul>
-
                             </div>
-
 
                             <a
                                 href="#contact"
@@ -541,33 +350,22 @@
 
                     </article>
 
+                    <!-- Solution 02 -->
+                    <article class="solution-card reverse reveal">
 
-                    <!-- SOLUTION 02 -->
-
-                    <article
-                        class="solution-card reverse reveal"
-                    >
-
-                        <div class="solution-number">
-                            02
-                        </div>
-
+                        <div class="solution-number">02</div>
 
                         <div class="solution-visual">
-
                             <div class="image-placeholder cctv-image"></div>
 
                             <div class="visual-tag">
                                 SURVEILLANCE
                             </div>
-
                         </div>
-
 
                         <div class="solution-content">
 
                             <div>
-
                                 <span class="small-label">
                                     Surveillance
                                 </span>
@@ -584,25 +382,12 @@
                                     business premises.
                                 </p>
 
-
                                 <ul>
-
-                                    <li>
-                                        IP & HD camera systems
-                                    </li>
-
-                                    <li>
-                                        NVR / DVR storage
-                                    </li>
-
-                                    <li>
-                                        Remote mobile monitoring
-                                    </li>
-
+                                    <li>IP & HD camera systems</li>
+                                    <li>NVR / DVR storage</li>
+                                    <li>Remote mobile monitoring</li>
                                 </ul>
-
                             </div>
-
 
                             <a
                                 href="#contact"
@@ -616,33 +401,22 @@
 
                     </article>
 
+                    <!-- Solution 03 -->
+                    <article class="solution-card reveal">
 
-                    <!-- SOLUTION 03 -->
-
-                    <article
-                        class="solution-card reveal"
-                    >
-
-                        <div class="solution-number">
-                            03
-                        </div>
-
+                        <div class="solution-number">03</div>
 
                         <div class="solution-visual">
-
                             <div class="image-placeholder security-image"></div>
 
                             <div class="visual-tag">
                                 PHYSICAL SECURITY
                             </div>
-
                         </div>
-
 
                         <div class="solution-content">
 
                             <div>
-
                                 <span class="small-label">
                                     Physical security
                                 </span>
@@ -659,25 +433,12 @@
                                     controlled, safer workplaces.
                                 </p>
 
-
                                 <ul>
-
-                                    <li>
-                                        RFID & biometric access
-                                    </li>
-
-                                    <li>
-                                        Fire alarm & detection
-                                    </li>
-
-                                    <li>
-                                        Flap barrier turnstiles
-                                    </li>
-
+                                    <li>RFID & biometric access</li>
+                                    <li>Fire alarm & detection</li>
+                                    <li>Flap barrier turnstiles</li>
                                 </ul>
-
                             </div>
-
 
                             <a
                                 href="#contact"
@@ -697,15 +458,8 @@
 
         </section>
 
-
-        <!-- =================================================
-             ABOUT
-             ================================================= -->
-
-        <section
-            class="about-section"
-            id="about"
-        >
+        <!-- About -->
+        <section class="about-section" id="about">
 
             <div class="about-background">
 
@@ -718,7 +472,6 @@
 
             </div>
 
-
             <div class="container about-container">
 
                 <div class="about-copy">
@@ -728,12 +481,9 @@
                     </span>
 
                     <h2 class="section-title reveal">
-
                         Built around
                         <span>dependability.</span>
-
                     </h2>
-
 
                     <p class="about-description reveal">
                         Rajmudra Enterprises provides IT hardware,
@@ -743,14 +493,12 @@
                         and professional service.
                     </p>
 
-
                     <p class="about-description reveal">
                         For more than six years, we have helped
                         businesses equip and protect their workplaces
                         with dependable products, installation and
                         responsive support.
                     </p>
-
 
                     <a
                         href="#contact"
@@ -762,85 +510,57 @@
 
                 </div>
 
-
                 <div class="about-points">
 
-                    <div
-                        class="about-point reveal"
-                    >
-
+                    <div class="about-point reveal">
                         <span>01</span>
 
                         <div>
-                            <strong>
-                                Quality-assured vendors
-                            </strong>
+                            <strong>Quality-assured vendors</strong>
 
                             <p>
                                 Products selected for dependable
                                 business use.
                             </p>
                         </div>
-
                     </div>
 
-
-                    <div
-                        class="about-point reveal reveal-delay"
-                    >
-
+                    <div class="about-point reveal reveal-delay">
                         <span>02</span>
 
                         <div>
-                            <strong>
-                                Installation & AMC
-                            </strong>
+                            <strong>Installation & AMC</strong>
 
                             <p>
                                 Support beyond the initial deployment.
                             </p>
                         </div>
-
                     </div>
 
-
-                    <div
-                        class="about-point reveal reveal-delay-2"
-                    >
-
+                    <div class="about-point reveal reveal-delay-2">
                         <span>03</span>
 
                         <div>
-                            <strong>
-                                Corporate focus
-                            </strong>
+                            <strong>Corporate focus</strong>
 
                             <p>
                                 Solutions shaped around real
                                 workplace needs.
                             </p>
                         </div>
-
                     </div>
 
-
-                    <div
-                        class="about-point reveal reveal-delay-3"
-                    >
-
+                    <div class="about-point reveal reveal-delay-3">
                         <span>04</span>
 
                         <div>
-                            <strong>
-                                Responsive service
-                            </strong>
+                            <strong>Responsive service</strong>
 
                             <p>
                                 Clear communication when your team
                                 needs it.
                             </p>
                         </div>
-
                     </div>
 
                 </div>
@@ -849,11 +569,7 @@
 
         </section>
 
-
-        <!-- =================================================
-             PRODUCTS
-             ================================================= -->
-
+        <!-- Products -->
         <section
             class="section products-section"
             id="products"
@@ -864,20 +580,15 @@
                 <div class="section-intro-grid">
 
                     <div>
-
                         <span class="section-number">
                             03 / Products
                         </span>
 
                         <h2 class="section-title reveal">
-
                             Technology selected
                             <span>for the workplace.</span>
-
                         </h2>
-
                     </div>
-
 
                     <p class="section-description reveal">
                         A focused range of business technology and
@@ -887,23 +598,15 @@
 
                 </div>
 
-
                 <div class="product-grid">
 
-
-                    <article
-                        class="product-card product-large reveal"
-                    >
+                    <article class="product-card product-large reveal">
 
                         <div class="product-art product-server"></div>
-
                         <div class="product-overlay"></div>
 
                         <div class="product-content">
-
-                            <span>
-                                01 / IT Infrastructure
-                            </span>
+                            <span>01 / IT Infrastructure</span>
 
                             <h3>
                                 Servers, racks
@@ -915,25 +618,17 @@
                                 Request a quote
                                 <b>↗</b>
                             </a>
-
                         </div>
 
                     </article>
 
-
-                    <article
-                        class="product-card reveal reveal-delay"
-                    >
+                    <article class="product-card reveal reveal-delay">
 
                         <div class="product-art product-computing"></div>
-
                         <div class="product-overlay"></div>
 
                         <div class="product-content">
-
-                            <span>
-                                02 / Computing
-                            </span>
+                            <span>02 / Computing</span>
 
                             <h3>
                                 Business laptops
@@ -944,25 +639,17 @@
                                 Request a quote
                                 <b>↗</b>
                             </a>
-
                         </div>
 
                     </article>
 
-
-                    <article
-                        class="product-card reveal reveal-delay-2"
-                    >
+                    <article class="product-card reveal reveal-delay-2">
 
                         <div class="product-art product-surveillance"></div>
-
                         <div class="product-overlay"></div>
 
                         <div class="product-content">
-
-                            <span>
-                                03 / Surveillance
-                            </span>
+                            <span>03 / Surveillance</span>
 
                             <h3>
                                 Cameras, NVR / DVR
@@ -973,7 +660,6 @@
                                 Request a quote
                                 <b>↗</b>
                             </a>
-
                         </div>
 
                     </article>
@@ -984,11 +670,7 @@
 
         </section>
 
-
-        <!-- =================================================
-             APPROACH
-             ================================================= -->
-
+        <!-- Approach -->
         <section class="approach-section">
 
             <div class="approach-glow"></div>
@@ -998,21 +680,16 @@
                 <div class="approach-inner">
 
                     <div>
-
                         <span class="section-number">
                             04 / The Rajmudra approach
                         </span>
 
                         <h2 class="approach-title reveal">
-
                             Technology should
                             <span>disappear</span>
                             into the business.
-
                         </h2>
-
                     </div>
-
 
                     <div class="approach-side reveal">
 
@@ -1025,16 +702,12 @@
                             work that matters.
                         </p>
 
-
                         <div class="approach-orbit">
 
                             <div class="orbit-ring"></div>
-
                             <div class="orbit-dot"></div>
 
-                            <span>
-                                R
-                            </span>
+                            <span>R</span>
 
                         </div>
 
@@ -1046,11 +719,7 @@
 
         </section>
 
-
-        <!-- =================================================
-             PAYMENTS
-             ================================================= -->
-
+        <!-- Payments -->
         <section
             class="section payments-section"
             id="payments"
@@ -1061,20 +730,15 @@
                 <div class="section-intro-grid">
 
                     <div>
-
                         <span class="section-number">
                             05 / Payments
                         </span>
 
                         <h2 class="section-title reveal">
-
                             Simple, direct
                             <span>business payments.</span>
-
                         </h2>
-
                     </div>
-
 
                     <p class="section-description reveal">
                         UPI and direct bank transfer options are
@@ -1083,21 +747,14 @@
 
                 </div>
 
-
                 <div class="payment-grid">
-
 
                     <article class="payment-card reveal">
 
-                        <span class="payment-index">
-                            01
-                        </span>
+                        <span class="payment-index">01</span>
 
                         <div>
-
-                            <span class="small-label">
-                                UPI
-                            </span>
+                            <span class="small-label">UPI</span>
 
                             <h3>
                                 RAJMUDRAENTERPRISES@SBI
@@ -1107,20 +764,15 @@
                                 Pay directly using your preferred
                                 UPI app.
                             </p>
-
                         </div>
 
                     </article>
 
-
                     <article class="payment-card reveal reveal-delay">
 
-                        <span class="payment-index">
-                            02
-                        </span>
+                        <span class="payment-index">02</span>
 
                         <div>
-
                             <span class="small-label">
                                 Bank transfer
                             </span>
@@ -1137,7 +789,6 @@
                                 <br>
                                 CA A/c No.: 39785779979
                             </p>
-
                         </div>
 
                     </article>
@@ -1148,11 +799,7 @@
 
         </section>
 
-
-        <!-- =================================================
-             CONTACT
-             ================================================= -->
-
+        <!-- Contact -->
         <section
             class="contact-section"
             id="contact"
@@ -1166,11 +813,9 @@
                 ></div>
 
                 <div class="contact-overlay"></div>
-
                 <div class="contact-grid"></div>
 
             </div>
-
 
             <div class="container contact-container">
 
@@ -1180,21 +825,16 @@
                         06 / Contact
                     </span>
 
-
                     <h2 class="contact-title reveal">
-
                         Ready to build a
                         <span>more capable workplace?</span>
-
                     </h2>
-
 
                     <p class="contact-description reveal">
                         Tell us what you need. We will help you
                         identify the right technology and security
                         solution for your site.
                     </p>
-
 
                     <div class="contact-actions reveal">
 
@@ -1218,7 +858,6 @@
 
                 </div>
 
-
                 <div class="contact-details">
 
                     <div class="contact-detail reveal">
@@ -1234,7 +873,6 @@
 
                     </div>
 
-
                     <div class="contact-detail reveal reveal-delay">
 
                         <span>Email</span>
@@ -1244,7 +882,6 @@
                         </a>
 
                     </div>
-
 
                     <div class="contact-detail reveal reveal-delay-2">
 
@@ -1268,11 +905,7 @@
 
     </main>
 
-
-    <!-- =====================================================
-         FOOTER
-         ===================================================== -->
-
+    <!-- Footer -->
     <footer class="site-footer">
 
         <div class="container">
@@ -1283,7 +916,6 @@
                     href="#top"
                     class="footer-brand"
                 >
-
                     <div class="brand-symbol">
                         <span>R</span>
                     </div>
@@ -1292,9 +924,7 @@
                         RAJMUDRA
                         <small>ENTERPRISES</small>
                     </div>
-
                 </a>
-
 
                 <p>
                     IT Hardware · CCTV · Fire Alarm ·
@@ -1303,7 +933,6 @@
 
             </div>
 
-
             <div class="footer-bottom">
 
                 <span>
@@ -1311,7 +940,6 @@
                     Rajmudra Enterprises.
                     All rights reserved.
                 </span>
-
 
                 <a href="#top">
                     Back to top ↑
@@ -1323,12 +951,8 @@
 
     </footer>
 
-
-    <!-- =====================================================
-         JAVASCRIPT
-         ===================================================== -->
-
     <script src="script.js"></script>
 
 </body>
 </html>
+```
