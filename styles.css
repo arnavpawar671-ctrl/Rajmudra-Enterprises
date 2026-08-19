@@ -1,11 +1,3 @@
-@font-face {
-  font-family: "GG Sans";
-  src: url("/fonts/gg-sans.woff2") format("woff2");
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
-
 :root {
   --radius: 0.75rem;
 
@@ -21,32 +13,36 @@
 
   --border: rgba(255, 255, 255, 0.12);
 
-  --gradient-hero: linear-gradient(
-    100deg,
-    rgba(19, 26, 38, 0.96) 0%,
-    rgba(19, 26, 38, 0.8) 45%,
-    rgba(19, 26, 38, 0.35) 100%
-  );
+  --gradient-hero:
+    linear-gradient(
+      100deg,
+      rgba(19, 26, 38, 0.96) 0%,
+      rgba(19, 26, 38, 0.80) 45%,
+      rgba(19, 26, 38, 0.35) 100%
+    );
 
-  --gradient-accent: linear-gradient(
-    95deg,
-    #f0ab3d,
-    #e8873f
-  );
+  --gradient-accent:
+    linear-gradient(95deg, #f0ab3d, #e8873f);
 
-  --shadow-card: 0 20px 45px -25px rgba(3, 6, 12, 0.9);
+  --shadow-card:
+    0 20px 45px -25px rgba(3, 6, 12, 0.9);
 
-  /* GG Sans everywhere */
-  --font-display: "GG Sans", "Helvetica Neue", Arial, sans-serif;
-  --font-sans: "GG Sans", "Helvetica Neue", Arial, sans-serif;
+  /* GOOGLE SANS — ENTIRE WEBSITE */
+  --font-main:
+    "Google Sans",
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
 
   color-scheme: dark;
 }
 
-
-/* =========================================================
+/* =========================
    LIGHT THEME
-   ========================================================= */
+========================= */
 
 html[data-theme="light"] {
   --background: #ffffff;
@@ -61,28 +57,26 @@ html[data-theme="light"] {
 
   --border: rgba(215, 25, 32, 0.16);
 
-  --gradient-hero: linear-gradient(
-    100deg,
-    rgba(255, 255, 255, 0.97) 0%,
-    rgba(255, 255, 255, 0.82) 40%,
-    rgba(255, 255, 255, 0.22) 100%
-  );
+  --gradient-hero:
+    linear-gradient(
+      100deg,
+      rgba(255, 255, 255, 0.97) 0%,
+      rgba(255, 255, 255, 0.82) 40%,
+      rgba(255, 255, 255, 0.22) 100%
+    );
 
-  --gradient-accent: linear-gradient(
-    95deg,
-    #c8101a,
-    #ef2b32
-  );
+  --gradient-accent:
+    linear-gradient(95deg, #c8101a, #ef2b32);
 
-  --shadow-card: 0 20px 45px -25px rgba(80, 8, 12, 0.22);
+  --shadow-card:
+    0 20px 45px -25px rgba(80, 8, 12, 0.22);
 
   color-scheme: light;
 }
 
-
-/* =========================================================
+/* =========================
    RESET
-   ========================================================= */
+========================= */
 
 * {
   box-sizing: border-box;
@@ -92,13 +86,15 @@ html[data-theme="light"] {
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
 
-  font-family: var(--font-sans);
+  /* GOOGLE SANS EVERYWHERE */
+  font-family: var(--font-main);
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -106,17 +102,11 @@ body {
   line-height: 1.5;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
 button,
 input,
 textarea,
 select {
-  font-family: var(--font-display);
+  font-family: inherit;
 }
 
 h1,
@@ -125,8 +115,20 @@ h3,
 h4,
 h5,
 h6 {
-  letter-spacing: -0.02em;
+  font-family: var(--font-main);
+  letter-spacing: -0.025em;
   font-weight: 600;
+}
+
+p,
+span,
+a,
+li,
+dt,
+dd,
+figcaption,
+button {
+  font-family: var(--font-main);
 }
 
 img {
@@ -139,21 +141,13 @@ a {
   text-decoration: none;
 }
 
-button,
-input,
-textarea,
-select {
-  font: inherit;
-}
-
 ul {
   list-style: none;
 }
 
-
-/* =========================================================
-   LAYOUT
-   ========================================================= */
+/* =========================
+   GENERAL
+========================= */
 
 .container {
   max-width: 72rem;
@@ -161,13 +155,8 @@ ul {
   padding: 0 1.25rem;
 }
 
-
-/* =========================================================
-   TYPOGRAPHY
-   ========================================================= */
-
 .eyebrow {
-  font-family: var(--font-display);
+  font-family: var(--font-main);
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.22em;
@@ -175,8 +164,11 @@ ul {
   color: var(--primary);
 }
 
-.muted {
-  color: var(--muted-foreground);
+.surface-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) + 4px);
+  box-shadow: var(--shadow-card);
 }
 
 .gradient-text {
@@ -186,35 +178,25 @@ ul {
   color: transparent;
 }
 
-
-/* =========================================================
-   CARDS
-   ========================================================= */
-
-.surface-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: calc(var(--radius) + 4px);
-  box-shadow: var(--shadow-card);
+.muted {
+  color: var(--muted-foreground);
 }
 
-
-/* =========================================================
+/* =========================
    BUTTONS
-   ========================================================= */
+========================= */
 
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   gap: 0.5rem;
 
   border-radius: 999px;
 
   padding: 0.75rem 1.5rem;
 
-  font-family: var(--font-sans);
+  font-family: var(--font-main);
   font-size: 0.875rem;
   font-weight: 600;
 
@@ -223,8 +205,8 @@ ul {
 
   transition:
     opacity 0.2s ease,
-    background-color 0.2s ease,
-    transform 0.2s ease;
+    transform 0.2s ease,
+    background-color 0.2s ease;
 }
 
 .btn:hover {
@@ -243,18 +225,12 @@ ul {
   opacity: 1;
 }
 
-
-/* =========================================================
-   ICONS
-   ========================================================= */
-
 .icon {
   width: 1rem;
   height: 1rem;
 
   stroke: currentColor;
   fill: none;
-
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -267,15 +243,13 @@ ul {
   stroke: var(--primary);
 }
 
-
-/* =========================================================
+/* =========================
    HEADER
-   ========================================================= */
+========================= */
 
 .site-header {
   position: fixed;
   inset: 0 0 auto 0;
-
   z-index: 50;
 
   border-bottom: 1px solid var(--border);
@@ -304,39 +278,32 @@ ul {
 .brand {
   display: flex;
   align-items: center;
-
   gap: 0.75rem;
 }
 
 .brand img {
   width: 2.25rem;
   height: 2.25rem;
-
   object-fit: contain;
 }
 
 .brand span {
-  font-family: var(--font-display);
-
+  font-family: var(--font-main);
   font-size: 1rem;
   font-weight: 600;
-
   letter-spacing: -0.01em;
 }
 
 .desktop-nav {
   display: none;
-
   align-items: center;
-
   gap: 1.75rem;
 }
 
 .desktop-nav a.navlink {
-  font-family: var(--font-sans);
-
+  font-family: var(--font-main);
   font-size: 0.875rem;
-
+  font-weight: 500;
   color: var(--muted-foreground);
 
   transition: color 0.2s ease;
@@ -361,7 +328,6 @@ ul {
   border-radius: 0.5rem;
 
   background: transparent;
-
   color: inherit;
 
   cursor: pointer;
@@ -386,6 +352,7 @@ ul {
 
   padding: 0.75rem 0;
 
+  font-family: var(--font-main);
   font-size: 0.875rem;
 
   color: var(--muted-foreground);
@@ -395,22 +362,16 @@ ul {
 
 .mobile-nav .btn {
   margin-top: 1rem;
-
   width: 100%;
-
-  justify-content: center;
 }
 
-
-/* =========================================================
+/* =========================
    HERO
-   ========================================================= */
+========================= */
 
 .hero {
   position: relative;
-
   isolation: isolate;
-
   overflow: hidden;
 
   padding: 7rem 0 5rem;
@@ -418,7 +379,6 @@ ul {
 
 .hero-bg {
   position: absolute;
-
   inset: 0;
 
   z-index: -2;
@@ -431,7 +391,6 @@ ul {
 
 .hero-overlay {
   position: absolute;
-
   inset: 0;
 
   z-index: -1;
@@ -444,11 +403,13 @@ ul {
 
   max-width: 48rem;
 
-  font-size: 2.25rem;
+  font-family: var(--font-main);
 
+  font-size: 2.25rem;
   line-height: 1.05;
 
-  font-weight: 700;
+  font-weight: 600;
+  letter-spacing: -0.035em;
 }
 
 .hero p.lead {
@@ -457,28 +418,27 @@ ul {
   max-width: 36rem;
 
   color: var(--muted-foreground);
+
+  font-size: 1rem;
 }
 
 .hero-actions {
   margin-top: 2.25rem;
 
   display: flex;
-
   flex-wrap: wrap;
 
   gap: 0.75rem;
 }
 
-
-/* =========================================================
+/* =========================
    STATS
-   ========================================================= */
+========================= */
 
 .stats {
   margin-top: 3.5rem;
 
   display: grid;
-
   grid-template-columns: repeat(2, 1fr);
 
   gap: 1px;
@@ -486,7 +446,6 @@ ul {
   background: var(--border);
 
   border: 1px solid var(--border);
-
   border-radius: 0.75rem;
 
   overflow: hidden;
@@ -501,11 +460,10 @@ ul {
 }
 
 .stats dt {
-  font-family: var(--font-display);
+  font-family: var(--font-main);
 
   font-size: 1.5rem;
-
-  font-weight: 700;
+  font-weight: 600;
 
   color: var(--primary);
 }
@@ -513,23 +471,22 @@ ul {
 .stats dd {
   margin-top: 0.25rem;
 
+  font-family: var(--font-main);
+
   font-size: 0.75rem;
 
   text-transform: uppercase;
-
   letter-spacing: 0.08em;
 
   color: var(--muted-foreground);
 }
 
-
-/* =========================================================
+/* =========================
    SECTIONS
-   ========================================================= */
+========================= */
 
 section.band {
   border-top: 1px solid var(--border);
-
   border-bottom: 1px solid var(--border);
 
   background: rgba(28, 37, 52, 0.4);
@@ -537,16 +494,17 @@ section.band {
 
 .section {
   padding-top: 5rem;
-
   padding-bottom: 5rem;
 }
 
 .section h2 {
   margin-top: 0.75rem;
 
-  font-size: 1.875rem;
+  font-family: var(--font-main);
 
-  font-weight: 700;
+  font-size: 1.875rem;
+  line-height: 1.15;
+  font-weight: 600;
 }
 
 .section > .lead {
@@ -556,11 +514,6 @@ section.band {
 
   color: var(--muted-foreground);
 }
-
-
-/* =========================================================
-   GRID
-   ========================================================= */
 
 .grid {
   display: grid;
@@ -582,10 +535,9 @@ section.band {
   grid-template-columns: 1fr;
 }
 
-
-/* =========================================================
-   SERVICES
-   ========================================================= */
+/* =========================
+   SERVICE CARDS
+========================= */
 
 .service-card {
   overflow: hidden;
@@ -601,9 +553,8 @@ section.band {
 }
 
 .service-card > img {
-  width: 100%;
-
   height: 13rem;
+  width: 100%;
 
   object-fit: cover;
 }
@@ -615,13 +566,16 @@ section.band {
 .service-body h3 {
   margin-top: 1rem;
 
-  font-size: 1.25rem;
+  font-family: var(--font-main);
 
+  font-size: 1.25rem;
   font-weight: 600;
 }
 
 .service-body p {
   margin-top: 0.75rem;
+
+  font-family: var(--font-main);
 
   font-size: 0.875rem;
 
@@ -638,18 +592,17 @@ section.band {
 
 .service-body li {
   display: flex;
-
   align-items: center;
 
   gap: 0.5rem;
 
+  font-family: var(--font-main);
   font-size: 0.875rem;
 }
 
-
-/* =========================================================
+/* =========================
    ABOUT
-   ========================================================= */
+========================= */
 
 .about-grid {
   display: grid;
@@ -657,13 +610,13 @@ section.band {
   gap: 3rem;
 
   padding-top: 5rem;
-
   padding-bottom: 5rem;
 }
 
 .about-grid p {
   margin-top: 1rem;
 
+  font-family: var(--font-main);
   font-size: 0.875rem;
 
   color: var(--muted-foreground);
@@ -679,7 +632,6 @@ section.band {
 
 .about-badges div {
   display: flex;
-
   align-items: center;
 
   gap: 0.75rem;
@@ -690,12 +642,12 @@ section.band {
 
   padding: 1rem;
 
+  font-family: var(--font-main);
   font-size: 0.875rem;
 }
 
 .about-img {
   width: 100%;
-
   height: 100%;
 
   object-fit: cover;
@@ -703,27 +655,17 @@ section.band {
   min-height: 18rem;
 }
 
-
-/* =========================================================
+/* =========================
    PRODUCTS
-   ========================================================= */
+========================= */
 
 .product-card {
   overflow: hidden;
-
-  transition:
-    transform 0.25s ease,
-    border-color 0.25s ease;
-}
-
-.product-card:hover {
-  transform: translateY(-4px);
 }
 
 .product-card img {
-  width: 100%;
-
   height: 11rem;
+  width: 100%;
 
   object-fit: cover;
 
@@ -741,15 +683,15 @@ section.band {
 .product-card figcaption p {
   margin-top: 0.5rem;
 
-  font-size: 0.875rem;
+  font-family: var(--font-main);
 
+  font-size: 0.875rem;
   font-weight: 500;
 }
 
-
-/* =========================================================
+/* =========================
    PAYMENTS
-   ========================================================= */
+========================= */
 
 .pay-grid {
   display: grid;
@@ -757,13 +699,11 @@ section.band {
   gap: 1.5rem;
 
   padding-top: 5rem;
-
   padding-bottom: 5rem;
 }
 
 .pay-item {
   display: flex;
-
   align-items: flex-start;
 
   gap: 1rem;
@@ -772,8 +712,9 @@ section.band {
 }
 
 .pay-item h3 {
-  font-size: 0.875rem;
+  font-family: var(--font-main);
 
+  font-size: 0.875rem;
   font-weight: 600;
 }
 
@@ -781,19 +722,20 @@ section.band {
 .pay-item p {
   margin-top: 0.5rem;
 
-  display: grid;
-
-  gap: 0.25rem;
+  font-family: var(--font-main);
 
   font-size: 0.875rem;
 
   color: var(--muted-foreground);
+
+  display: grid;
+
+  gap: 0.25rem;
 }
 
-
-/* =========================================================
+/* =========================
    CONTACT
-   ========================================================= */
+========================= */
 
 .contact-card {
   padding: 1.75rem;
@@ -802,13 +744,16 @@ section.band {
 .contact-card h3 {
   margin-top: 1rem;
 
-  font-size: 1rem;
+  font-family: var(--font-main);
 
+  font-size: 1rem;
   font-weight: 600;
 }
 
 .contact-card p {
   margin-top: 0.25rem;
+
+  font-family: var(--font-main);
 
   font-size: 0.875rem;
 
@@ -821,26 +766,25 @@ section.band {
   padding: 1.75rem;
 
   display: flex;
-
   flex-wrap: wrap;
 
   align-items: center;
-
   justify-content: space-between;
 
   gap: 1rem;
 }
 
 .contact-cta p {
+  font-family: var(--font-main);
+
   font-size: 0.875rem;
 
   color: var(--muted-foreground);
 }
 
-
-/* =========================================================
+/* =========================
    FOOTER
-   ========================================================= */
+========================= */
 
 .site-footer {
   border-top: 1px solid var(--border);
@@ -870,7 +814,6 @@ section.band {
 
 .logo-plate img {
   height: 4rem;
-
   width: auto;
 
   object-fit: contain;
@@ -883,27 +826,26 @@ section.band {
 
   gap: 0.25rem;
 
+  font-family: var(--font-main);
+
   font-size: 0.75rem;
 
   color: var(--muted-foreground);
 }
 
-
-/* =========================================================
+/* =========================
    THEME TOGGLE
-   ========================================================= */
+========================= */
 
 .theme-toggle {
   display: inline-flex;
 
   align-items: center;
-
   justify-content: center;
 
   gap: 0.45rem;
 
   width: 2.5rem;
-
   height: 2.5rem;
 
   border: 1px solid var(--border);
@@ -942,7 +884,6 @@ html[data-theme="light"] .theme-toggle .theme-moon {
 
 .mobile-theme-toggle {
   width: 100%;
-
   height: auto;
 
   padding: 0.75rem 1rem;
@@ -955,15 +896,16 @@ html[data-theme="light"] .theme-toggle .theme-moon {
 }
 
 .mobile-theme-toggle span {
+  font-family: var(--font-main);
+
   font-size: 0.875rem;
 
   color: var(--muted-foreground);
 }
 
-
-/* =========================================================
-   LIGHT THEME DETAILS
-   ========================================================= */
+/* =========================
+   LIGHT MODE
+========================= */
 
 html[data-theme="light"] .site-header {
   background: rgba(255, 255, 255, 0.92);
@@ -971,29 +913,15 @@ html[data-theme="light"] .site-header {
   border-bottom-color: rgba(215, 25, 32, 0.12);
 }
 
-html[data-theme="light"] .nav-links a.active,
-html[data-theme="light"] .nav-links a:hover {
-  color: var(--primary);
-}
-
 html[data-theme="light"] .hero-overlay {
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.96) 0%,
-    rgba(255, 255, 255, 0.82) 38%,
-    rgba(255, 255, 255, 0.34) 72%,
-    rgba(255, 255, 255, 0.14) 100%
-  );
-}
-
-html[data-theme="dark"] .hero-overlay {
-  background: linear-gradient(
-    90deg,
-    rgba(5, 9, 14, 0.94) 0%,
-    rgba(5, 9, 14, 0.78) 38%,
-    rgba(5, 9, 14, 0.38) 72%,
-    rgba(5, 9, 14, 0.18) 100%
-  );
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.96) 0%,
+      rgba(255, 255, 255, 0.82) 38%,
+      rgba(255, 255, 255, 0.34) 72%,
+      rgba(255, 255, 255, 0.14) 100%
+    );
 }
 
 html[data-theme="light"] .hero {
@@ -1018,15 +946,12 @@ html[data-theme="light"] .eyebrow {
 
 html[data-theme="light"] .gradient-text {
   background-image: var(--gradient-accent);
-
-  color: var(--primary);
 }
 
 html[data-theme="light"] .hero::after {
   content: "";
 
   position: absolute;
-
   inset: 0;
 
   z-index: -1;
@@ -1042,11 +967,25 @@ html[data-theme="light"] .hero::after {
     );
 }
 
+/* =========================
+   DARK MODE
+========================= */
+
+html[data-theme="dark"] .hero-overlay {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5, 9, 14, 0.94) 0%,
+      rgba(5, 9, 14, 0.78) 38%,
+      rgba(5, 9, 14, 0.38) 72%,
+      rgba(5, 9, 14, 0.18) 100%
+    );
+}
+
 html[data-theme="dark"] .hero::after {
   content: "";
 
   position: absolute;
-
   inset: 0;
 
   z-index: -1;
@@ -1062,10 +1001,9 @@ html[data-theme="dark"] .hero::after {
     );
 }
 
-
-/* =========================================================
+/* =========================
    RESPONSIVE — 640px
-   ========================================================= */
+========================= */
 
 @media (min-width: 640px) {
   .grid-3,
@@ -1078,10 +1016,9 @@ html[data-theme="dark"] .hero::after {
   }
 }
 
-
-/* =========================================================
+/* =========================
    RESPONSIVE — 768px
-   ========================================================= */
+========================= */
 
 @media (min-width: 768px) {
   .desktop-nav {
@@ -1112,7 +1049,6 @@ html[data-theme="dark"] .hero::after {
 
   .section {
     padding-top: 7rem;
-
     padding-bottom: 7rem;
   }
 
@@ -1137,7 +1073,6 @@ html[data-theme="dark"] .hero::after {
     grid-template-columns: repeat(2, 1fr);
 
     padding-top: 7rem;
-
     padding-bottom: 7rem;
   }
 
@@ -1162,10 +1097,9 @@ html[data-theme="dark"] .hero::after {
   }
 }
 
-
-/* =========================================================
+/* =========================
    RESPONSIVE — 1024px
-   ========================================================= */
+========================= */
 
 @media (min-width: 1024px) {
   .grid-4 {
@@ -1177,26 +1111,51 @@ html[data-theme="dark"] .hero::after {
   }
 }
 
-
-/* =========================================================
+/* =========================
    MOBILE
-   ========================================================= */
+========================= */
 
 @media (max-width: 767px) {
   .desktop-nav .theme-toggle {
     display: none;
   }
 
-  .hero {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
   .hero h1 {
     font-size: 2.25rem;
   }
+}
 
-  .stats {
-    grid-template-columns: repeat(2, 1fr);
+/* =========================
+   SELECTION
+========================= */
+
+::selection {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+/* =========================
+   ACCESSIBILITY
+========================= */
+
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
   }
 }
