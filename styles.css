@@ -1,25 +1,35 @@
+/* =========================================================
+   RAJMUDRA ENTERPRISES — PREMIUM CORPORATE SYSTEM
+   ========================================================= */
 
 :root {
     --bg: #05070a;
-    --bg-soft: #080b10;
+    --bg-2: #080b10;
     --surface: #0c1118;
-    --surface-light: #111821;
+    --surface-2: #101720;
+    --surface-3: #151d27;
 
-    --white: #f5f7fa;
-    --text: #dce2ea;
-    --muted: #8994a5;
-    --muted-dark: #5f6a79;
+    --white: #f7f9fc;
+    --text: #dce3eb;
+    --text-soft: #a9b3c0;
+    --muted: #7e8998;
+    --muted-dark: #596473;
 
     --blue: #63adff;
-    --blue-light: #a7d4ff;
+    --blue-light: #a9d7ff;
+    --blue-dark: #2778c9;
 
-    --border: rgba(255, 255, 255, 0.08);
+    --green: #69d391;
+
+    --border: rgba(255, 255, 255, 0.075);
     --border-light: rgba(255, 255, 255, 0.14);
+    --border-blue: rgba(99, 173, 255, 0.22);
 
     --max: 1240px;
 
     --display:
         "Space Grotesk",
+        "Montserrat",
         system-ui,
         sans-serif;
 
@@ -30,6 +40,11 @@
 
     --ease:
         cubic-bezier(.22, 1, .36, 1);
+
+    --shadow:
+        0 25px 80px rgba(0, 0, 0, .35);
+
+    --header-height: 82px;
 }
 
 
@@ -47,7 +62,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 90px;
+    scroll-padding-top: var(--header-height);
 }
 
 body {
@@ -55,8 +70,13 @@ body {
 
     background:
         radial-gradient(
-            circle at 80% 10%,
-            rgba(47, 126, 211, .06),
+            circle at 80% 0%,
+            rgba(39, 120, 201, .075),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 10% 80%,
+            rgba(39, 120, 201, .035),
             transparent 30%
         ),
         var(--bg);
@@ -69,6 +89,7 @@ body {
     overflow-x: hidden;
 
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
 }
 
@@ -81,14 +102,14 @@ a {
     text-decoration: none;
 }
 
-button,
-a {
-    -webkit-tap-highlight-color: transparent;
-}
-
 button {
     border: 0;
     font: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
 }
 
 img {
@@ -103,7 +124,7 @@ img {
 
 
 /* =========================================================
-   FOCUS
+   ACCESSIBILITY
    ========================================================= */
 
 a:focus-visible,
@@ -148,6 +169,7 @@ button:focus-visible {
     color: var(--muted);
 
     font-size: 9px;
+    font-weight: 600;
 
     letter-spacing: .17em;
     text-transform: uppercase;
@@ -169,7 +191,7 @@ button:focus-visible {
 }
 
 .section-title span {
-    color: #697484;
+    color: #687484;
 }
 
 
@@ -191,7 +213,7 @@ button:focus-visible {
 
     gap: 20px;
 
-    background: #05070a;
+    background: var(--bg);
 
     transition:
         opacity .7s ease,
@@ -201,6 +223,7 @@ button:focus-visible {
 .page-loader.hidden {
     opacity: 0;
     visibility: hidden;
+    pointer-events: none;
 }
 
 .loader-mark {
@@ -230,13 +253,15 @@ button:focus-visible {
     color: var(--muted);
 
     font-size: 9px;
+    font-weight: 600;
+
     letter-spacing: .25em;
 }
 
 @keyframes loaderPulse {
     0%,
     100% {
-        opacity: .35;
+        opacity: .3;
         transform: scaleY(.35);
     }
 
@@ -265,12 +290,13 @@ button:focus-visible {
     background:
         linear-gradient(
             90deg,
+            var(--blue-dark),
             var(--blue),
             var(--blue-light)
         );
 
     box-shadow:
-        0 0 18px rgba(99, 173, 255, .7);
+        0 0 18px rgba(99, 173, 255, .65);
 }
 
 
@@ -292,7 +318,7 @@ button:focus-visible {
 
     z-index: -5;
 
-    opacity: .07;
+    opacity: .065;
 }
 
 .ambient-one {
@@ -321,8 +347,8 @@ button:focus-visible {
         translate3d(0, 30px, 0);
 
     transition:
-        opacity .9s var(--ease),
-        transform .9s var(--ease);
+        opacity .8s var(--ease),
+        transform .8s var(--ease);
 }
 
 .reveal.visible {
@@ -362,27 +388,28 @@ button:focus-visible {
         1px solid transparent;
 
     transition:
-        background .45s ease,
-        border-color .45s ease,
-        box-shadow .45s ease,
-        backdrop-filter .45s ease;
+        background .4s ease,
+        border-color .4s ease,
+        box-shadow .4s ease;
 }
 
 .site-header.scrolled {
     background:
-        rgba(5, 7, 10, .72);
+        rgba(5, 7, 10, .76);
 
     border-color:
         var(--border);
 
     box-shadow:
-        0 10px 40px rgba(0, 0, 0, .15);
+        0 12px 50px rgba(0, 0, 0, .22);
 
     backdrop-filter:
-        blur(22px);
+        blur(22px)
+        saturate(140%);
 
     -webkit-backdrop-filter:
-        blur(22px);
+        blur(22px)
+        saturate(140%);
 }
 
 .header-inner {
@@ -391,7 +418,7 @@ button:focus-visible {
         calc(100% - 48px)
     );
 
-    height: 82px;
+    height: var(--header-height);
 
     margin-inline: auto;
 
@@ -421,43 +448,39 @@ button:focus-visible {
 }
 
 .brand-symbol {
-    width: 35px;
-    height: 35px;
+    width: 42px;
+    height: 42px;
 
     display: grid;
-
     place-items: center;
 
-    border:
-        1px solid var(--border-light);
+    flex-shrink: 0;
 
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.07),
-            rgba(255,255,255,.015)
-        );
-
-    font-family: var(--display);
-
-    font-size: 16px;
-    font-weight: 600;
-
-    box-shadow:
-        inset 0 0 20px rgba(255,255,255,.025);
+    background: transparent;
+    border: 0;
+    box-shadow: none;
 }
 
-.brand-symbol span {
-    color: var(--white);
+.brand-symbol img {
+    width: 42px;
+    height: 42px;
+
+    object-fit: contain;
+
+    display: block;
+
+    background: transparent;
+    border: 0;
+    box-shadow: none;
 }
 
 .brand-name {
-    font-family: var(--display);
+    font-family: "Montserrat", var(--display), sans-serif;
 
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 700;
 
-    letter-spacing: .02em;
+    letter-spacing: 1px;
 }
 
 .brand-name small {
@@ -468,6 +491,7 @@ button:focus-visible {
     color: var(--muted);
 
     font-size: 7px;
+    font-weight: 500;
 
     letter-spacing: .25em;
 }
@@ -484,7 +508,7 @@ button:focus-visible {
 
     gap: 27px;
 
-    color: #a3adba;
+    color: #9ea9b7;
 
     font-size: 11px;
 }
@@ -512,8 +536,13 @@ button:focus-visible {
     transform:
         translateX(-50%);
 
+    border-radius: 10px;
+
     background:
         var(--blue);
+
+    box-shadow:
+        0 0 10px rgba(99, 173, 255, .6);
 
     transition:
         width .3s var(--ease);
@@ -526,7 +555,7 @@ button:focus-visible {
 
 .desktop-nav a:hover::after,
 .desktop-nav a.active::after {
-    width: 4px;
+    width: 5px;
 }
 
 
@@ -551,12 +580,16 @@ button:focus-visible {
     background:
         rgba(255,255,255,.035);
 
+    color: #dbe3ec;
+
     font-size: 10px;
+    font-weight: 600;
 
     transition:
         transform .3s var(--ease),
         background .3s ease,
-        border-color .3s ease;
+        border-color .3s ease,
+        box-shadow .3s ease;
 }
 
 .header-cta b {
@@ -570,10 +603,13 @@ button:focus-visible {
         translateY(-2px);
 
     background:
-        rgba(255,255,255,.08);
+        rgba(255,255,255,.075);
 
     border-color:
         rgba(255,255,255,.25);
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.18);
 }
 
 
@@ -605,7 +641,8 @@ button:focus-visible {
     background: #fff;
 
     transition:
-        transform .3s var(--ease);
+        transform .3s var(--ease),
+        opacity .2s ease;
 }
 
 .menu-btn span:first-child {
@@ -670,6 +707,7 @@ button:focus-visible {
 
     background-position: center;
     background-size: cover;
+    background-repeat: no-repeat;
 
     will-change: transform;
 }
@@ -681,7 +719,7 @@ button:focus-visible {
     filter:
         grayscale(.3)
         contrast(1.15)
-        brightness(.48);
+        brightness(.46);
 }
 
 .hero-overlay {
@@ -699,7 +737,7 @@ button:focus-visible {
         ),
         linear-gradient(
             0deg,
-            rgba(5,7,10,.97),
+            rgba(5,7,10,.98),
             transparent 45%,
             rgba(5,7,10,.4)
         );
@@ -731,7 +769,7 @@ button:focus-visible {
             transparent 80%
         );
 
-    opacity: .4;
+    opacity: .38;
 }
 
 .hero-container {
@@ -771,6 +809,7 @@ button:focus-visible {
     color: #b2bbc7;
 
     font-size: 10px;
+    font-weight: 600;
 
     letter-spacing: .18em;
 
@@ -781,9 +820,11 @@ button:focus-visible {
     width: 6px;
     height: 6px;
 
+    flex-shrink: 0;
+
     border-radius: 50%;
 
-    background: #68cf8a;
+    background: var(--green);
 
     box-shadow:
         0 0 15px rgba(104,207,138,.8);
@@ -850,6 +891,8 @@ button:focus-visible {
     font-size: 11px;
     font-weight: 600;
 
+    cursor: pointer;
+
     transition:
         transform .35s var(--ease),
         background .35s ease,
@@ -887,7 +930,7 @@ button:focus-visible {
     background: #fff;
 
     box-shadow:
-        0 14px 35px rgba(255,255,255,.08);
+        0 14px 40px rgba(255,255,255,.1);
 }
 
 .button-outline {
@@ -925,6 +968,7 @@ button:focus-visible {
     color: #788393;
 
     font-size: 9px;
+    font-weight: 500;
 
     letter-spacing: .14em;
 
@@ -962,7 +1006,7 @@ button:focus-visible {
         repeat(4, 145px);
 
     background:
-        rgba(6,8,12,.5);
+        rgba(6,8,12,.52);
 
     border-top:
         1px solid var(--border);
@@ -971,7 +1015,12 @@ button:focus-visible {
         1px solid var(--border);
 
     backdrop-filter:
-        blur(14px);
+        blur(16px)
+        saturate(120%);
+
+    -webkit-backdrop-filter:
+        blur(16px)
+        saturate(120%);
 }
 
 .stat {
@@ -981,6 +1030,14 @@ button:focus-visible {
 
     border-right:
         1px solid var(--border);
+
+    transition:
+        background .3s ease;
+}
+
+.stat:hover {
+    background:
+        rgba(255,255,255,.035);
 }
 
 .stat strong {
@@ -1006,6 +1063,8 @@ button:focus-visible {
 
     font-size: 8px;
 
+    font-weight: 600;
+
     letter-spacing: .12em;
 
     text-transform: uppercase;
@@ -1026,6 +1085,7 @@ button:focus-visible {
     color: #737e8d;
 
     font-size: 9px;
+    font-weight: 600;
 
     letter-spacing: .14em;
 
@@ -1186,6 +1246,7 @@ button:focus-visible {
 
     background-position: center;
     background-size: cover;
+    background-repeat: no-repeat;
 
     transition:
         transform 1s var(--ease),
@@ -1217,7 +1278,7 @@ button:focus-visible {
     background:
         linear-gradient(
             0deg,
-            rgba(4,6,9,.78),
+            rgba(4,6,9,.82),
             transparent 65%
         );
 }
@@ -1252,6 +1313,7 @@ button:focus-visible {
     color: #cbd3dc;
 
     font-size: 8px;
+    font-weight: 600;
 
     letter-spacing: .14em;
 }
@@ -1533,6 +1595,7 @@ button:focus-visible {
 
     background-position: center;
     background-size: cover;
+    background-repeat: no-repeat;
 
     transition:
         transform 1s var(--ease),
@@ -1589,6 +1652,7 @@ button:focus-visible {
     color: #9ca7b5;
 
     font-size: 8px;
+    font-weight: 600;
 
     letter-spacing: .15em;
 
@@ -1623,6 +1687,7 @@ button:focus-visible {
     color: #b5bfcb;
 
     font-size: 9px;
+    font-weight: 600;
 
     transition:
         color .3s ease,
@@ -1876,7 +1941,7 @@ button:focus-visible {
         #111720;
 
     border-color:
-        rgba(99,173,255,.15);
+        var(--border-blue);
 }
 
 .payment-index {
@@ -2038,6 +2103,7 @@ button:focus-visible {
     color: #697484;
 
     font-size: 8px;
+    font-weight: 600;
 
     letter-spacing: .16em;
 
@@ -2127,6 +2193,19 @@ button:focus-visible {
     color: #fff;
 }
 
+.footer-logo {
+    width: 220px;
+    height: auto;
+
+    display: block;
+
+    object-fit: contain;
+
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+}
+
 
 /* =========================================================
    TABLET
@@ -2191,6 +2270,20 @@ button:focus-visible {
 
     /* Header */
 
+    .header-inner {
+        height: 72px;
+    }
+
+    .brand-symbol,
+    .brand-symbol img {
+        width: 38px;
+        height: 38px;
+    }
+
+    .brand-name {
+        font-size: 12px;
+    }
+
     .desktop-nav {
         display: none;
     }
@@ -2235,7 +2328,8 @@ button:focus-visible {
             color .25s ease;
     }
 
-    .mobile-nav a:hover {
+    .mobile-nav a:hover,
+    .mobile-nav a.active {
         color: #fff;
     }
 
@@ -2430,6 +2524,10 @@ button:focus-visible {
 
         flex-direction: column;
     }
+
+    .footer-logo {
+        width: 180px;
+    }
 }
 
 
@@ -2471,6 +2569,14 @@ button:focus-visible {
     .button {
         width: 100%;
     }
+
+    .brand-name {
+        font-size: 11px;
+    }
+
+    .brand-name small {
+        font-size: 6px;
+    }
 }
 
 
@@ -2495,52 +2601,5 @@ button:focus-visible {
     .reveal {
         opacity: 1;
         transform: none;
-    }
-}
-
-/* Remove square border/background around logo */
-.brand-symbol {
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    padding: 0 !important;
-    border-radius: 0 !important;
-}
-
-.brand-symbol img {
-    width: 42px;
-    height: 42px;
-    object-fit: contain;
-    display: block;
-    border: none !important;
-    background: transparent !important;
-    box-shadow: none !important;
-}
-
-.brand-name {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 700;
-    letter-spacing: 1px;
-}
-
-.brand-name span {
-    font-weight: 500;
-    letter-spacing: 3px;
-}
-.footer-brand {
-    display: inline-flex;
-    align-items: center;
-}
-
-.footer-logo {
-    width: 220px;
-    height: auto;
-    display: block;
-    object-fit: contain;
-}
-
-@media (max-width: 768px) {
-    .footer-logo {
-        width: 180px;
     }
 }
