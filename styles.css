@@ -2714,3 +2714,434 @@ body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;ba
 body.modal-open{overflow:hidden}
 @media(max-width:760px){.service-detail-modal{padding:12px}.service-detail-card{padding:30px 20px 24px;border-radius:21px}.service-detail-card h2{font-size:42px}.service-detail-actions{flex-direction:column}.service-detail-actions .button{width:100%}}
 @media(prefers-reduced-motion:reduce){.service-detail-modal,.service-detail-card{transition:none}}
+
+
+/* =========================================================
+   MOBILE POLISH — PHONE-FIRST LAYOUT
+   ========================================================= */
+
+@media (max-width: 760px) {
+    :root {
+        --mobile-gutter: 18px;
+    }
+
+    html {
+        scroll-padding-top: 78px;
+    }
+
+    body {
+        -webkit-tap-highlight-color: transparent;
+        text-rendering: optimizeLegibility;
+    }
+
+    .container,
+    .header-inner,
+    .hero-container {
+        width: calc(100% - (var(--mobile-gutter) * 2));
+    }
+
+    .section {
+        padding: 76px 0;
+    }
+
+    /* Compact glass header */
+    .site-header {
+        background: rgba(5, 7, 10, .72);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+    }
+
+    .header-inner {
+        height: 66px;
+    }
+
+    .brand {
+        gap: 9px;
+    }
+
+    .brand-symbol,
+    .brand-symbol img {
+        width: 34px;
+        height: 34px;
+    }
+
+    .brand-name {
+        letter-spacing: .08em;
+    }
+
+    .menu-btn {
+        width: 44px;
+        height: 44px;
+        display: grid;
+        place-items: center;
+        gap: 5px;
+        border: 1px solid rgba(255,255,255,.11);
+        border-radius: 13px;
+        background: rgba(255,255,255,.045);
+    }
+
+    .menu-btn span {
+        width: 17px;
+        height: 1px;
+        background: #fff;
+    }
+
+    .mobile-nav {
+        padding: 8px 18px calc(18px + env(safe-area-inset-bottom));
+        background: rgba(5,7,10,.94);
+        border-top: 1px solid rgba(255,255,255,.08);
+    }
+
+    .mobile-nav a {
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        padding: 0;
+        font-size: 13px;
+        letter-spacing: .01em;
+    }
+
+    .mobile-nav-cta {
+        min-height: 48px !important;
+        margin-top: 10px;
+        box-shadow: 0 12px 30px rgba(0,0,0,.25);
+    }
+
+    /* Hero: less vertical dead space */
+    .hero,
+    .hero-container {
+        min-height: auto;
+    }
+
+    .hero {
+        padding-bottom: 54px;
+    }
+
+    .hero-container {
+        padding-top: 92px;
+    }
+
+    .hero-kicker {
+        font-size: 10px;
+        letter-spacing: .12em;
+    }
+
+    .hero h1 {
+        max-width: 680px;
+        margin-top: 18px;
+        font-size: clamp(43px, 12.8vw, 64px);
+        line-height: .94;
+        letter-spacing: -.055em;
+    }
+
+    .hero-description {
+        max-width: 520px;
+        margin-top: 22px;
+        font-size: 13px;
+        line-height: 1.75;
+    }
+
+    .hero-actions {
+        gap: 9px;
+        margin-top: 28px;
+    }
+
+    .hero-actions .button {
+        min-height: 50px;
+        padding: 14px 18px;
+        border-radius: 14px;
+    }
+
+    .hero-location {
+        margin-top: 30px;
+        font-size: 10px;
+    }
+
+    .hero-stats {
+        margin-top: 42px;
+        gap: 8px;
+    }
+
+    .stat {
+        min-height: 82px;
+        padding: 14px 12px;
+        border: 1px solid rgba(255,255,255,.08);
+        border-radius: 15px;
+        background: rgba(255,255,255,.025);
+    }
+
+    .stat strong {
+        font-size: 23px;
+    }
+
+    .stat span {
+        font-size: 9px;
+        line-height: 1.35;
+    }
+
+    /* Marquee */
+    .marquee {
+        padding: 13px 0;
+        overflow: hidden;
+    }
+
+    .marquee-track {
+        gap: 18px;
+        font-size: 9px;
+        letter-spacing: .12em;
+    }
+
+    /* Section headings */
+    .section-intro-grid {
+        gap: 28px;
+    }
+
+    .section-number {
+        font-size: 9px;
+        letter-spacing: .16em;
+    }
+
+    .section-title {
+        max-width: 600px;
+        margin-top: 12px;
+        font-size: clamp(38px, 11vw, 52px);
+        line-height: .98;
+    }
+
+    .section-description {
+        max-width: 560px;
+        font-size: 13px;
+        line-height: 1.75;
+    }
+
+    /* Solutions */
+    .solution-list {
+        margin-top: 40px;
+    }
+
+    .solution-card,
+    .solution-card.reverse {
+        grid-template-columns: 22px minmax(0,1fr);
+        gap: 13px;
+    }
+
+    .solution-number {
+        font-size: 9px;
+        padding-top: 4px;
+    }
+
+    .solution-visual {
+        min-height: 225px;
+        border-radius: 18px;
+    }
+
+    .solution-content {
+        padding: 14px 0 30px;
+    }
+
+    .solution-content h3 {
+        max-width: 520px;
+        font-size: clamp(32px, 9.5vw, 42px);
+        line-height: .98;
+    }
+
+    /* Projects */
+    .project-grid {
+        gap: 12px;
+        margin-top: 34px;
+    }
+
+    .project-card,
+    .project-card-wide {
+        min-height: 300px;
+        border-radius: 19px;
+    }
+
+    .project-copy {
+        padding: 23px 20px;
+    }
+
+    .project-copy h3 {
+        font-size: 28px;
+    }
+
+    .project-copy p {
+        font-size: 12px;
+        line-height: 1.55;
+    }
+
+    /* Large sections */
+    .about-section,
+    .contact-section {
+        min-height: auto;
+    }
+
+    .about-container,
+    .contact-container {
+        padding: 70px 0;
+    }
+
+    .approach-section {
+        padding: 82px 0;
+    }
+
+    .approach-title,
+    .contact-title {
+        font-size: clamp(40px, 11vw, 54px);
+        line-height: .98;
+    }
+
+    /* Products */
+    .product-grid {
+        gap: 10px;
+        grid-template-rows: repeat(3, 260px);
+    }
+
+    /* Quote modal */
+    .quote-modal {
+        padding: 10px;
+    }
+
+    .quote-modal-card {
+        width: 100%;
+        padding: 27px 17px 22px;
+        border-radius: 19px;
+    }
+
+    .quote-modal-card h2 {
+        font-size: 35px;
+        padding-right: 32px;
+    }
+
+    .quote-form {
+        gap: 13px;
+    }
+
+    .quote-form input,
+    .quote-form select,
+    .quote-form textarea {
+        min-height: 48px;
+        font-size: 16px;
+    }
+
+    /* Service detail */
+    .service-detail-modal {
+        padding: 10px;
+    }
+
+    .service-detail-card {
+        width: 100%;
+        max-height: 90vh;
+        padding: 28px 18px 20px;
+        border-radius: 20px;
+    }
+
+    .service-detail-card h2 {
+        font-size: clamp(36px, 10vw, 46px);
+    }
+
+    .service-detail-card > p {
+        font-size: 13px;
+        line-height: 1.7;
+    }
+
+    .service-detail-item {
+        min-height: 52px;
+        padding: 12px 0;
+    }
+
+    .service-detail-actions .button {
+        min-height: 49px;
+        border-radius: 13px;
+    }
+
+    /* Mobile action bar */
+    .mobile-action-bar {
+        left: 8px;
+        right: 8px;
+        bottom: max(8px, env(safe-area-inset-bottom));
+        border-radius: 17px;
+        background: rgba(7,10,14,.88);
+        box-shadow: 0 18px 55px rgba(0,0,0,.48);
+    }
+
+    .mobile-action-bar a,
+    .mobile-action-bar button {
+        min-height: 50px;
+        font-size: 10px;
+        border-radius: 12px;
+    }
+
+    .mobile-action-bar span {
+        font-size: 14px;
+    }
+
+    /* Keep hover-only effects from leaking onto touch */
+    .motion-shine::after,
+    .cursor-ring,
+    .motion-orb {
+        display: none !important;
+    }
+
+    [data-motion-tilt] {
+        transform: none !important;
+        transition: none;
+    }
+}
+
+@media (max-width: 430px) {
+    :root {
+        --mobile-gutter: 14px;
+    }
+
+    .hero-container {
+        padding-top: 84px;
+    }
+
+    .hero h1 {
+        font-size: clamp(40px, 12.5vw, 51px);
+    }
+
+    .hero-description {
+        font-size: 12.5px;
+    }
+
+    .hero-actions .button {
+        width: 100%;
+    }
+
+    .hero-stats {
+        gap: 7px;
+    }
+
+    .stat {
+        min-height: 76px;
+        padding: 12px 9px;
+    }
+
+    .stat strong {
+        font-size: 20px;
+    }
+
+    .stat span {
+        font-size: 8px;
+    }
+
+    .solution-visual {
+        min-height: 205px;
+    }
+
+    .project-card,
+    .project-card-wide {
+        min-height: 275px;
+    }
+
+    .product-grid {
+        grid-template-rows: repeat(3, 235px);
+    }
+
+    body {
+        padding-bottom: 78px;
+    }
+}
+
