@@ -3,47 +3,31 @@
    ========================================================= */
 
 :root {
-    --bg: #05070a;
-    --bg-2: #080b10;
-    --surface: #0c1118;
-    --surface-2: #101720;
-    --surface-3: #151d27;
-
-    --white: #f7f9fc;
-    --text: #dce3eb;
-    --text-soft: #a9b3c0;
-    --muted: #7e8998;
-    --muted-dark: #596473;
-
-    --blue: #63adff;
-    --blue-light: #a9d7ff;
-    --blue-dark: #2778c9;
-
-    --green: #69d391;
-
-    --border: rgba(255, 255, 255, 0.075);
-    --border-light: rgba(255, 255, 255, 0.14);
-    --border-blue: rgba(99, 173, 255, 0.22);
-
+    --bg: #050507;
+    --bg-2: #08090c;
+    --surface: #0d0e12;
+    --surface-2: #121318;
+    --surface-3: #18191f;
+    --white: #f8f8f8;
+    --text: #e7e7e9;
+    --text-soft: #b5b5bc;
+    --muted: #7f8088;
+    --muted-dark: #55565e;
+    --blue: #e6e6e6;
+    --blue-light: #ffffff;
+    --blue-dark: #bdbdc4;
+    --green: #d9d9dd;
+    --red: #d7192f;
+    --red-light: #ff4659;
+    --red-dark: #9f1020;
+    --border: rgba(255,255,255,.075);
+    --border-light: rgba(255,255,255,.14);
+    --border-blue: rgba(215,25,47,.25);
     --max: 1240px;
-
-    --display:
-        "Space Grotesk",
-        "Montserrat",
-        system-ui,
-        sans-serif;
-
-    --body:
-        "DM Sans",
-        system-ui,
-        sans-serif;
-
-    --ease:
-        cubic-bezier(.22, 1, .36, 1);
-
-    --shadow:
-        0 25px 80px rgba(0, 0, 0, .35);
-
+    --display: "Space Grotesk","Montserrat",system-ui,sans-serif;
+    --body: "DM Sans",system-ui,sans-serif;
+    --ease: cubic-bezier(.22,1,.36,1);
+    --shadow: 0 25px 80px rgba(0,0,0,.42);
     --header-height: 82px;
 }
 
@@ -129,7 +113,7 @@ img {
 
 a:focus-visible,
 button:focus-visible {
-    outline: 2px solid var(--blue);
+    outline: 2px solid var(--red);
     outline-offset: 4px;
 }
 
@@ -290,9 +274,9 @@ button:focus-visible {
     background:
         linear-gradient(
             90deg,
-            var(--blue-dark),
-            var(--blue),
-            var(--blue-light)
+            var(--red-dark),
+            var(--red),
+            var(--white)
         );
 
     box-shadow:
@@ -539,7 +523,7 @@ button:focus-visible {
     border-radius: 10px;
 
     background:
-        var(--blue);
+        var(--red);
 
     box-shadow:
         0 0 10px rgba(99, 173, 255, .6);
@@ -593,7 +577,7 @@ button:focus-visible {
 }
 
 .header-cta b {
-    color: var(--blue);
+    color: var(--red);
 
     font-size: 14px;
 }
@@ -986,7 +970,7 @@ button:focus-visible {
     height: 1px;
 
     background:
-        var(--blue);
+        var(--red);
 }
 
 
@@ -1093,7 +1077,7 @@ button:focus-visible {
 }
 
 .scroll-arrow {
-    color: var(--blue);
+    color: var(--red);
 
     animation:
         scrollBounce 1.8s ease-in-out infinite;
@@ -1153,7 +1137,7 @@ button:focus-visible {
 }
 
 .marquee-track i {
-    color: var(--blue);
+    color: var(--red);
 
     font-style: normal;
 }
@@ -1388,7 +1372,7 @@ button:focus-visible {
     border-radius: 50%;
 
     background:
-        var(--blue);
+        var(--red);
 
     box-shadow:
         0 0 10px rgba(99,173,255,.5);
@@ -1413,14 +1397,14 @@ button:focus-visible {
 .solution-link span {
     margin-left: 10px;
 
-    color: var(--blue);
+    color: var(--red);
 }
 
 .solution-link:hover {
     color: #fff;
 
     border-color:
-        var(--blue);
+        var(--red);
 }
 
 
@@ -1698,14 +1682,14 @@ button:focus-visible {
     color: #fff;
 
     border-color:
-        var(--blue);
+        var(--red);
 }
 
 .product-content b {
     margin-left: 7px;
 
     color:
-        var(--blue);
+        var(--red);
 }
 
 
@@ -1795,7 +1779,7 @@ button:focus-visible {
     margin-bottom: 25px;
 
     background:
-        var(--blue);
+        var(--red);
 }
 
 .approach-side p {
@@ -1852,10 +1836,10 @@ button:focus-visible {
     border-radius: 50%;
 
     background:
-        var(--blue);
+        var(--red);
 
     box-shadow:
-        0 0 15px var(--blue);
+        0 0 15px var(--red);
 }
 
 .orbit-dot {
@@ -3181,3 +3165,32 @@ body::after{
 @media(prefers-reduced-motion:reduce){
     body::after{animation:none}
 }
+
+
+/* =========================================================
+   RAJMUDRA BRAND THEME — DEEP DARK / RED / WHITE
+   ========================================================= */
+body{
+    background:
+        radial-gradient(circle at 82% 0%,rgba(215,25,47,.075),transparent 30%),
+        radial-gradient(circle at 8% 82%,rgba(215,25,47,.035),transparent 28%),
+        var(--bg);
+}
+::selection{background:rgba(215,25,47,.28);color:#fff}
+.site-header.scrolled{box-shadow:0 12px 50px rgba(0,0,0,.4)}
+.status-dot{background:var(--red);box-shadow:0 0 15px rgba(215,25,47,.75)}
+.location-line{background:var(--red)}
+.scroll-arrow{color:var(--red)}
+.marquee-track i{color:var(--red)}
+.desktop-nav a::after{background:var(--red);box-shadow:0 0 10px rgba(215,25,47,.6)}
+.header-cta b{color:var(--red)}
+.button-outline:hover{border-color:rgba(215,25,47,.45);box-shadow:0 10px 35px rgba(215,25,47,.08)}
+.stat strong,.hero h1,.section-title,.solution-content h3,.project-copy h3,.approach-title,.contact-title{color:#f8f8f8}
+.project-art::before{background:radial-gradient(circle at 70% 35%,rgba(215,25,47,.2),transparent 30%),linear-gradient(135deg,transparent 20%,rgba(255,255,255,.035) 50%,transparent 80%)}
+.project-scan{background:rgba(255,255,255,.7);box-shadow:0 0 24px rgba(215,25,47,.7)}
+.network-node{background:#fff;box-shadow:0 0 20px rgba(215,25,47,.75)}
+.access-beam{background:#fff;box-shadow:0 0 30px rgba(215,25,47,.75)}
+.service-detail-item:hover em{color:var(--red)}
+.service-detail-card{box-shadow:0 35px 120px rgba(0,0,0,.7)}
+.mobile-action-bar button{background:var(--red);color:#fff}
+.quote-modal-card .button-light{background:var(--red);color:#fff}
