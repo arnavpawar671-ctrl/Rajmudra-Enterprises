@@ -826,3 +826,38 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 });
+
+(() => {
+    const modal = document.getElementById("quoteModal");
+    const form = document.getElementById("quoteForm");
+    if (!modal || !form) return;
+    const openers = document.querySelectorAll("[data-open-quote], .header-cta");
+    const closers = modal.querySelectorAll("[data-close-quote]");
+    const firstField = form.querySelector("select");
+    const open = () => { modal.classList.add("open"); modal.setAttribute("aria-hidden","false"); document.body.classList.add("quote-modal-open"); window.setTimeout(() => firstField?.focus(),80); };
+    const close = () => { modal.classList.remove("open"); modal.setAttribute("aria-hidden","true"); document.body.classList.remove("quote-modal-open"); };
+    openers.forEach(el => el.addEventListener("click", event => {
+        const href = el.getAttribute("href");
+        if (el.matches(".header-cta") && href === "#contact" && window.innerWidth > 760) return;
+        event.preventDefault(); open();
+    }));
+    closers.forEach(el => el.addEventListener("click", close));
+    document.addEventListener("keydown", event => { if (event.key === "Escape" && modal.classList.contains("open")) close(); });
+    form.addEventListener("submit", event => {
+        event.preventDefault();
+        const data = new FormData(form);
+        const subject = "Quote Request — " + data.get("service");
+        const body = [
+            "Service: " + data.get("service"),
+            "Name: " + data.get("name"),
+            "Phone: " + data.get("phone"),
+            "Company / Society: " + (data.get("company") || "Not provided"),
+            "Location: " + (data.get("location") || "Not provided"),
+            "",
+            "Requirements:",
+            data.get("requirements")
+        ].join("\n");
+        window.location.href = "mailto:info@rajmudraent.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+        close();
+    });
+})();
