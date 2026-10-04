@@ -2666,3 +2666,30 @@ body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;ba
 [data-motion-reveal],[data-motion-scale]{opacity:1;transform:none;transition:none}
 .motion-float,.motion-pulse{animation:none}
 }
+
+
+/* =========================================================
+   PROJECT + INDUSTRY SHOWCASE
+   ========================================================= */
+.projects-showcase,.industries-section{position:relative;overflow:hidden}
+.project-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:18px;margin-top:64px}
+.project-card{position:relative;min-height:420px;overflow:hidden;border:1px solid rgba(255,255,255,.1);border-radius:24px;background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));box-shadow:0 24px 70px rgba(0,0,0,.22);isolation:isolate}
+.project-card-wide{grid-row:span 2}
+.project-art{position:absolute;inset:0;background:#0a0e14;overflow:hidden}
+.project-art::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 35%,rgba(104,169,255,.22),transparent 30%),linear-gradient(135deg,transparent 20%,rgba(255,255,255,.035) 50%,transparent 80%)}
+.project-art-cctv::after{content:"REC  24/7   •   SECURE FEED";position:absolute;top:22px;left:22px;font:600 9px/1.2 ui-monospace,SFMono-Regular,monospace;letter-spacing:.18em;color:rgba(255,255,255,.65)}
+.project-scan{position:absolute;left:8%;right:8%;height:1px;top:22%;background:rgba(119,187,255,.65);box-shadow:0 0 24px rgba(119,187,255,.7);animation:projectScan 4s ease-in-out infinite}
+@keyframes projectScan{0%,100%{transform:translateY(0);opacity:.35}50%{transform:translateY(250px);opacity:1}}
+.project-art-network{background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:44px 44px}
+.network-node{position:absolute;width:11px;height:11px;border-radius:50%;background:#dcecff;box-shadow:0 0 20px rgba(120,185,255,.8);animation:nodePulse 2.5s ease-in-out infinite}.n1{left:25%;top:35%}.n2{left:60%;top:55%;animation-delay:.5s}.n3{left:75%;top:25%;animation-delay:1s}
+.project-art-network:after{content:"";position:absolute;inset:20% 18%;background:linear-gradient(25deg,transparent 49.7%,rgba(133,190,255,.35) 50%,transparent 50.3%),linear-gradient(-20deg,transparent 49.7%,rgba(133,190,255,.25) 50%,transparent 50.3%)}
+@keyframes nodePulse{50%{transform:scale(1.8);opacity:.55}}
+.project-art-access{background:radial-gradient(circle at 50% 50%,rgba(110,180,255,.18),transparent 25%),#080c12}.access-beam{position:absolute;left:15%;right:15%;top:49%;height:2px;background:#e8f4ff;box-shadow:0 0 30px rgba(130,195,255,.8);animation:accessSweep 3s ease-in-out infinite}
+@keyframes accessSweep{0%,100%{transform:scaleX(.35);opacity:.35}50%{transform:scaleX(1);opacity:1}}
+.project-copy{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:34px;background:linear-gradient(transparent,rgba(3,5,8,.96) 32%)}
+.project-copy span,.industry-card span{font:600 10px/1.2 ui-monospace,SFMono-Regular,monospace;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.48)}
+.project-copy h3{margin:9px 0 8px;font-size:clamp(25px,3vw,42px);letter-spacing:-.04em}.project-copy p{max-width:560px;margin:0;color:rgba(255,255,255,.62);line-height:1.65;font-size:13px}
+.industry-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:52px}.industry-card{position:relative;min-height:155px;padding:24px;border:1px solid rgba(255,255,255,.09);border-radius:18px;background:rgba(255,255,255,.025);transition:transform .5s var(--motion-ease),border-color .5s ease,background .5s ease;overflow:hidden}.industry-card:before{content:"";position:absolute;inset:auto -30% -65% -30%;height:130px;background:radial-gradient(circle,rgba(100,160,255,.14),transparent 65%);transition:transform .7s var(--motion-ease)}.industry-card:hover{transform:translateY(-8px);border-color:rgba(150,200,255,.28);background:rgba(255,255,255,.045)}.industry-card:hover:before{transform:translateY(-35px)}.industry-card b{display:block;margin-top:28px;font-size:20px;letter-spacing:-.02em}.industry-card small{display:block;margin-top:8px;color:rgba(255,255,255,.48);font-size:11px;line-height:1.5}
+@media(max-width:760px){.project-grid{grid-template-columns:1fr;margin-top:42px}.project-card,.project-card-wide{grid-row:auto;min-height:330px}.industry-grid{grid-template-columns:1fr 1fr}.industry-card{min-height:145px;padding:18px}.industry-card b{font-size:17px;margin-top:22px}}
+@media(max-width:430px){.industry-grid{grid-template-columns:1fr}.project-card{min-height:300px}}
+@media(prefers-reduced-motion:reduce){.project-scan,.network-node,.access-beam{animation:none}}

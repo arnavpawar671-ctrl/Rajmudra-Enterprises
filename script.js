@@ -952,3 +952,22 @@ document.addEventListener("DOMContentLoaded", () => {
         el.addEventListener("mouseleave",()=>el.style.transform="");
     });
 })();
+
+
+/* =====================================================
+   SHOWCASE MOTION POLISH
+   ===================================================== */
+(() => {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return;
+    document.querySelectorAll(".project-card, .industry-card").forEach((card, i) => {
+        card.style.setProperty("--showcase-delay", (i % 6) * 70 + "ms");
+        card.addEventListener("pointermove", e => {
+            if (e.pointerType === "touch") return;
+            const r = card.getBoundingClientRect();
+            const x = (e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5;
+            card.style.transform = "perspective(900px) rotateX("+(-y*2.8)+"deg) rotateY("+(x*2.8)+"deg) translateY(-6px)";
+        });
+        card.addEventListener("pointerleave", () => card.style.transform = "");
+    });
+})();
