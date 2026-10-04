@@ -2603,3 +2603,23 @@ button:focus-visible {
         transform: none;
     }
 }
+
+.quote-modal{position:fixed;inset:0;z-index:2000;display:grid;place-items:center;padding:24px;visibility:hidden;opacity:0;pointer-events:none;transition:opacity .25s ease,visibility .25s ease}
+.quote-modal.open{visibility:visible;opacity:1;pointer-events:auto}
+.quote-modal-backdrop{position:absolute;inset:0;background:rgba(3,5,8,.78);backdrop-filter:blur(12px)}
+.quote-modal-card{position:relative;width:min(680px,100%);max-height:min(90vh,900px);overflow:auto;padding:34px;border:1px solid rgba(255,255,255,.13);border-radius:24px;background:linear-gradient(145deg,rgba(15,20,27,.98),rgba(7,10,14,.98));box-shadow:0 30px 100px rgba(0,0,0,.55);transform:translateY(16px) scale(.98);transition:transform .25s ease}
+.quote-modal.open .quote-modal-card{transform:none}
+.quote-modal-card h2{margin:10px 0 8px;font-size:clamp(30px,5vw,48px);letter-spacing:-.04em}
+.quote-modal-card>p{margin:0 0 24px;color:rgba(255,255,255,.68);line-height:1.7}
+.quote-modal-close{position:absolute;top:16px;right:18px;width:40px;height:40px;border:1px solid rgba(255,255,255,.12);border-radius:50%;background:rgba(255,255,255,.05);color:#fff;font-size:24px;cursor:pointer}
+.quote-form{display:grid;gap:16px}
+.quote-form label{display:grid;gap:8px;color:rgba(255,255,255,.82);font-size:13px;font-weight:600}
+.quote-form input,.quote-form select,.quote-form textarea{width:100%;border:1px solid rgba(255,255,255,.12);border-radius:12px;background:rgba(255,255,255,.045);color:#fff;padding:13px 14px;font:inherit;outline:none;box-sizing:border-box}
+.quote-form select option{background:#0b0f14;color:#fff}
+.quote-form input:focus,.quote-form select:focus,.quote-form textarea:focus{border-color:rgba(99,173,255,.7);box-shadow:0 0 0 3px rgba(99,173,255,.1)}
+.quote-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.quote-submit{border:0;cursor:pointer;justify-content:center;width:100%}
+.quote-note{margin:0;color:rgba(255,255,255,.48);font-size:11px;line-height:1.5}
+.mobile-action-bar{display:none}
+@media(max-width:760px){.quote-modal{padding:12px}.quote-modal-card{padding:26px 18px 24px;border-radius:20px;max-height:92vh}.quote-form-grid{grid-template-columns:1fr}.mobile-action-bar{position:fixed;left:10px;right:10px;bottom:10px;z-index:1500;display:grid;grid-template-columns:1fr 1.2fr 1fr;padding:6px;border:1px solid rgba(255,255,255,.12);border-radius:18px;background:rgba(7,10,14,.9);backdrop-filter:blur(18px);box-shadow:0 15px 45px rgba(0,0,0,.4);padding-bottom:calc(6px + env(safe-area-inset-bottom))}.mobile-action-bar a,.mobile-action-bar button{min-height:48px;display:grid;place-items:center;gap:2px;border:0;background:transparent;color:#fff;text-decoration:none;font:600 11px/1.1 inherit;cursor:pointer;border-radius:13px}.mobile-action-bar button{background:#fff;color:#05070a}.mobile-action-bar span{font-size:15px}body{padding-bottom:82px}}
+@media(prefers-reduced-motion:reduce){.quote-modal,.quote-modal-card{transition:none}}
