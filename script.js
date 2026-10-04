@@ -971,3 +971,88 @@ document.addEventListener("DOMContentLoaded", () => {
         card.addEventListener("pointerleave", () => card.style.transform = "");
     });
 })();
+
+/* =====================================================
+   SERVICE DETAIL INTERACTION
+   ===================================================== */
+(() => {
+    const modal = document.getElementById("serviceDetailModal");
+    if (!modal) return;
+    const title = document.getElementById("serviceDetailTitle");
+    const label = document.getElementById("serviceDetailLabel");
+    const description = document.getElementById("serviceDetailDescription");
+    const list = document.getElementById("serviceDetailList");
+    const serviceQuote = modal.querySelector("[data-service-quote]");
+    const services = {
+        "IT Hardware & Networking": {
+            label: "INFRASTRUCTURE",
+            description: "Business hardware and connectivity planned around the way your workplace actually operates.",
+            items: ["Workstations & servers", "Networking & Wi-Fi", "AMC & on-site support"]
+        },
+        "CCTV & E-Surveillance": {
+            label: "SURVEILLANCE",
+            description: "Site-focused camera and monitoring infrastructure for better visibility across critical areas.",
+            items: ["CCTV installation", "Remote monitoring", "Coverage planning"]
+        },
+        "Access Control": {
+            label: "PHYSICAL SECURITY",
+            description: "Controlled-entry solutions designed to help manage movement through offices, societies and restricted areas.",
+            items: ["Access readers", "Entry management", "Turnstile systems"]
+        },
+        "Fire Alarm & Safety": {
+            label: "LIFE SAFETY",
+            description: "Fire detection and safety infrastructure planned to support earlier awareness and safer premises.",
+            items: ["Fire alarm systems", "Detection devices", "Site planning"]
+        },
+        "AMC & Technical Support": {
+            label: "SUPPORT",
+            description: "Ongoing maintenance and technical support to help keep deployed systems reliable.",
+            items: ["Preventive maintenance", "Troubleshooting", "On-site support"]
+        }
+    };
+    let activeService = "";
+    const open = service => {
+        const data = services[service];
+        if (!data) return;
+        activeService = service;
+        title.textContent = service;
+        label.textContent = data.label;
+        description.textContent = data.description;
+        list.innerHTML = data.items.map((item, i) => '<div class="service-detail-item"><span>0'+(i+1)+'</span><b>'+item+'</b><em>↗</em></div>').join("");
+        modal.classList.add("open");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("modal-open");
+        modal.querySelector(".service-detail-close").focus();
+    };
+    const close = () => {
+        modal.classList.remove("open");
+        modal.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("modal-open");
+    };
+    document.addEventListener("click", e => {
+        const trigger = e.target.closest("[data-service]");
+        if (trigger) {
+            e.preventDefault();
+            open(trigger.dataset.service);
+        }
+        if (e.target.closest("[data-close-service]")) close();
+        if (e.target.closest("[data-service-quote]")) {
+            close();
+            const quote = document.getElementById("quoteModal");
+            const opener = document.querySelector("[data-open-quote]");
+            if (opener) opener.click();
+            else if (quote) {
+                quote.classList.add("open");
+                quote.setAttribute("aria-hidden", "false");
+            }
+            const select = document.querySelector('#quoteForm select[name="service"]');
+            if (select && activeService) {
+                const option = [...select.options].find(o => o.textContent === activeService);
+                if (option) select.value = option.value;
+            }
+        }
+    });
+    document.addEventListener("keydown", e => {
+        if (e.key === "Escape" && modal.classList.contains("open")) close();
+    });
+})();
