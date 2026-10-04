@@ -1038,3 +1038,40 @@ document.addEventListener("DOMContentLoaded", () => {
         if (e.key === "Escape" && modal.classList.contains("open")) close();
     });
 })();
+
+
+/* =====================================================
+   GRAND WELCOME EXPERIENCE
+   ===================================================== */
+(() => {
+    const welcome = document.getElementById("grandWelcome");
+    const enter = document.getElementById("grandWelcomeEnter");
+    if (!welcome) return;
+
+    document.body.classList.add("welcome-active");
+
+    let closed = false;
+
+    const leaveWelcome = () => {
+        if (closed) return;
+        closed = true;
+        welcome.classList.add("is-leaving");
+        welcome.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("welcome-active");
+
+        window.setTimeout(() => {
+            welcome.remove();
+        }, 1150);
+    };
+
+    enter?.addEventListener("click", leaveWelcome);
+
+    // Give the intro enough time to feel cinematic, but don't trap the visitor.
+    window.setTimeout(leaveWelcome, 4200);
+
+    document.addEventListener("keydown", event => {
+        if (event.key === "Enter" || event.key === "Escape") {
+            leaveWelcome();
+        }
+    }, { once: true });
+})();
