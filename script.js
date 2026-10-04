@@ -826,3 +826,129 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 });
+
+(() => {
+    const modal = document.getElementById("quoteModal");
+    const form = document.getElementById("quoteForm");
+    if (!modal || !form) return;
+    const openers = document.querySelectorAll("[data-open-quote], .header-cta");
+    const closers = modal.querySelectorAll("[data-close-quote]");
+    const firstField = form.querySelector("select");
+    const open = () => { modal.classList.add("open"); modal.setAttribute("aria-hidden","false"); document.body.classList.add("quote-modal-open"); window.setTimeout(() => firstField?.focus(),80); };
+    const close = () => { modal.classList.remove("open"); modal.setAttribute("aria-hidden","true"); document.body.classList.remove("quote-modal-open"); };
+    openers.forEach(el => el.addEventListener("click", event => {
+        const href = el.getAttribute("href");
+        if (el.matches(".header-cta") && href === "#contact" && window.innerWidth > 760) return;
+        event.preventDefault(); open();
+    }));
+    closers.forEach(el => el.addEventListener("click", close));
+    document.addEventListener("keydown", event => { if (event.key === "Escape" && modal.classList.contains("open")) close(); });
+    form.addEventListener("submit", event => {
+        event.preventDefault();
+        const data = new FormData(form);
+        const subject = "Quote Request — " + data.get("service");
+        const body = [
+            "Service: " + data.get("service"),
+            "Name: " + data.get("name"),
+            "Phone: " + data.get("phone"),
+            "Company / Society: " + (data.get("company") || "Not provided"),
+            "Location: " + (data.get("location") || "Not provided"),
+            "",
+            "Requirements:",
+            data.get("requirements")
+        ].join("\n");
+        window.location.href = "mailto:info@rajmudraent.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+        close();
+    });
+})();
+
+/* =====================================================
+   CINEMATIC MOTION ENGINE
+   ===================================================== */
+(() => {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const root = document.documentElement;
+    if (reduce) return;
+
+    document.body.insertAdjacentHTML("afterbegin", '<div class="motion-orb" aria-hidden="true"></div><div class="cursor-ring" aria-hidden="true"></div><div class="motion-progress" aria-hidden="true"></div>');
+    document.body.classList.add("motion-ready");
+
+    const reveal = [...document.querySelectorAll(".reveal, section, .solution-card, .service-card, .project-card, .about-card, .stat, .contact-details > *, footer, [data-motion-reveal]")];
+    reveal.forEach((el,i) => {
+        if (el.matches("section") || el.hasAttribute("data-motion-reveal")) return;
+        if (!el.closest(".quote-modal")) {
+            el.setAttribute("data-motion-reveal","");
+            el.style.setProperty("--motion-delay", Math.min((i % 6) * 65, 325) + "ms");
+        }
+    });
+
+    const scaleTargets = document.querySelectorAll(".hero-image, .hero-visual, .featured-image, [data-scroll-scale]");
+    scaleTargets.forEach(el => { if (!el.hasAttribute("data-scroll-scale")) el.setAttribute("data-scroll-scale",""); });
+
+    const io = new IntersectionObserver(entries => entries.forEach(entry => {
+        if(entry.isIntersecting) entry.target.classList.add("is-visible");
+    }), {threshold:.12, rootMargin:"0px 0px -7% 0px"});
+    document.querySelectorAll("[data-motion-reveal],[data-motion-scale]").forEach(el => io.observe(el));
+
+    document.querySelectorAll(".solution-card, .service-card, .project-card, .about-card").forEach((el,i) => {
+        el.setAttribute("data-motion-tilt","");
+        el.classList.add("motion-shine");
+        el.style.setProperty("--i", i % 6);
+    });
+
+    const tilt = el => {
+        const rect=el.getBoundingClientRect(), x=(event.clientX-rect.left)/rect.width-.5, y=(event.clientY-rect.top)/rect.height-.5;
+        el.style.transform="perspective(900px) rotateX("+(-y*5)+"deg) rotateY("+(x*5)+"deg) translateY(-4px)";
+    };
+    document.querySelectorAll("[data-motion-tilt]").forEach(el=>{
+        el.addEventListener("mousemove",e=>{
+            const rect=el.getBoundingClientRect(),x=(e.clientX-rect.left)/rect.width-.5,y=(e.clientY-rect.top)/rect.height-.5;
+            el.style.transform="perspective(900px) rotateX("+(-y*5)+"deg) rotateY("+(x*5)+"deg) translateY(-4px)";
+        });
+        el.addEventListener("mouseleave",()=>{el.style.transform=""});
+    });
+
+    const ring=document.querySelector(".cursor-ring"), orb=document.querySelector(".motion-orb");
+    let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my;
+    addEventListener("mousemove",e=>{
+        mx=e.clientX; my=e.clientY;
+        root.style.setProperty("--mx",(mx/innerWidth*100)+"%");
+        root.style.setProperty("--my",(my/innerHeight*100)+"%");
+    },{passive:true});
+    const cursorFrame=()=>{
+        rx+=(mx-rx)*.18; ry+=(my-ry)*.18;
+        if(ring){ring.style.left=rx+"px";ring.style.top=ry+"px";ring.style.opacity="1"}
+        if(orb){orb.style.left=mx+"px";orb.style.top=my+"px"}
+        requestAnimationFrame(cursorFrame);
+    };
+    cursorFrame();
+    document.querySelectorAll("a,button,[data-motion-tilt]").forEach(el=>{
+        el.addEventListener("mouseenter",()=>ring?.classList.add("is-hover"));
+        el.addEventListener("mouseleave",()=>ring?.classList.remove("is-hover"));
+    });
+
+    let ticking=false;
+    const onScroll=()=>{
+        if(ticking)return;ticking=true;
+        requestAnimationFrame(()=>{
+            const max=document.documentElement.scrollHeight-innerHeight, y=scrollY;
+            document.querySelector(".motion-progress")?.style.setProperty("transform","scaleX("+(max?y/max:0)+")");
+            document.querySelectorAll("[data-scroll-scale]").forEach(el=>{
+                const r=el.getBoundingClientRect(), p=Math.max(0,Math.min(1,1-(r.top-innerHeight*.15)/(innerHeight*.85)));
+                el.style.setProperty("--scroll-scale",(1+p*.035).toFixed(3));
+            });
+            ticking=false;
+        });
+    };
+    addEventListener("scroll",onScroll,{passive:true}); onScroll();
+
+    document.querySelectorAll("a,button").forEach(el=>{
+        if(el.closest(".mobile-action-bar") || el.classList.contains("quote-modal-close")) return;
+        el.classList.add("motion-magnetic");
+        el.addEventListener("mousemove",e=>{
+            const r=el.getBoundingClientRect(),x=(e.clientX-r.left-r.width/2)*.08,y=(e.clientY-r.top-r.height/2)*.08;
+            el.style.transform="translate3d("+x+"px,"+y+"px,0)";
+        });
+        el.addEventListener("mouseleave",()=>el.style.transform="");
+    });
+})();
