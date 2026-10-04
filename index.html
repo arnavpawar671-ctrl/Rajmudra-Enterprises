@@ -2357,6 +2357,44 @@
 
     <script src="script.js"></script>
 
+    <div class="quote-modal" id="quoteModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="quoteModalTitle">
+        <div class="quote-modal-backdrop" data-close-quote></div>
+        <div class="quote-modal-card">
+            <button class="quote-modal-close" type="button" data-close-quote aria-label="Close quote request">×</button>
+            <span class="section-number">REQUEST A QUOTE</span>
+            <h2 id="quoteModalTitle">Tell us what you need.</h2>
+            <p>Share a few details and your email app will prepare the enquiry for Rajmudra Enterprises.</p>
+            <form id="quoteForm" class="quote-form">
+                <label>Service
+                    <select name="service" required>
+                        <option value="">Select a service</option>
+                        <option>IT Hardware & Infrastructure</option>
+                        <option>CCTV & E-Surveillance</option>
+                        <option>Networking</option>
+                        <option>Access Control</option>
+                        <option>Fire Alarm & Safety</option>
+                        <option>AMC & Technical Support</option>
+                        <option>Other</option>
+                    </select>
+                </label>
+                <div class="quote-form-grid">
+                    <label>Name<input name="name" type="text" autocomplete="name" required></label>
+                    <label>Phone<input name="phone" type="tel" autocomplete="tel" required></label>
+                </div>
+                <label>Company / Society<input name="company" type="text" autocomplete="organization"></label>
+                <label>Location<input name="location" type="text" autocomplete="address-level2" placeholder="e.g. Mira Road, Thane"></label>
+                <label>Requirements<textarea name="requirements" rows="4" placeholder="Tell us what you want installed, upgraded or maintained." required></textarea></label>
+                <button class="button button-light quote-submit" type="submit">Prepare enquiry <span aria-hidden="true">↗</span></button>
+                <p class="quote-note">No account or backend required. Your enquiry stays in your email app until you send it.</p>
+            </form>
+        </div>
+    </div>
+    <div class="mobile-action-bar" aria-label="Quick contact actions">
+        <a href="tel:+919930899853"><span aria-hidden="true">☎</span> Call</a>
+        <button type="button" data-open-quote><span aria-hidden="true">▣</span> Get Quote</button>
+        <a href="https://wa.me/919930899853" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">◉</span> WhatsApp</a>
+    </div>
+
 </body>
 
 </html>
