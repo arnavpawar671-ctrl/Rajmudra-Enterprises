@@ -2421,6 +2421,21 @@
 
     <script src="script.js"></script>
 
+
+    <div class="service-detail-modal" id="serviceDetailModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="serviceDetailTitle">
+        <div class="service-detail-backdrop" data-close-service></div>
+        <div class="service-detail-card">
+            <button class="service-detail-close" type="button" data-close-service aria-label="Close service details">×</button>
+            <span class="section-number" id="serviceDetailLabel">SOLUTION</span>
+            <h2 id="serviceDetailTitle">Service</h2>
+            <p id="serviceDetailDescription"></p>
+            <div class="service-detail-list" id="serviceDetailList"></div>
+            <div class="service-detail-actions">
+                <button class="button button-light" type="button" data-service-quote>Request a quote <span aria-hidden="true">↗</span></button>
+                <button class="button button-outline" type="button" data-close-service>Back to solutions</button>
+            </div>
+        </div>
+    </div>
     <div class="quote-modal" id="quoteModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="quoteModalTitle">
         <div class="quote-modal-backdrop" data-close-quote></div>
         <div class="quote-modal-card">
