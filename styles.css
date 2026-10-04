@@ -3148,7 +3148,7 @@ body.modal-open{overflow:hidden}
 
 
 /* =========================================================
-   FLOATING PARTICLES — RAJMUDRA BLUE ATMOSPHERE
+   FLOATING PARTICLES — RAJMUDRA RED + WHITE
    ========================================================= */
 body::after{
     content:"";
@@ -3156,27 +3156,27 @@ body::after{
     inset:0;
     z-index:-1;
     pointer-events:none;
-    opacity:.52;
+    opacity:.46;
     background-image:
-        radial-gradient(circle at 7% 16%,rgba(99,173,255,.62) 0 1px,transparent 1.9px),
-        radial-gradient(circle at 15% 67%,rgba(169,215,255,.42) 0 1px,transparent 1.8px),
-        radial-gradient(circle at 24% 31%,rgba(39,120,201,.55) 0 1.3px,transparent 2px),
-        radial-gradient(circle at 33% 84%,rgba(99,173,255,.38) 0 1px,transparent 1.8px),
-        radial-gradient(circle at 43% 20%,rgba(169,215,255,.52) 0 1px,transparent 1.9px),
-        radial-gradient(circle at 54% 71%,rgba(99,173,255,.38) 0 1.4px,transparent 2px),
-        radial-gradient(circle at 64% 35%,rgba(39,120,201,.5) 0 1px,transparent 1.8px),
-        radial-gradient(circle at 73% 78%,rgba(99,173,255,.4) 0 1.5px,transparent 2.1px),
-        radial-gradient(circle at 84% 17%,rgba(169,215,255,.55) 0 1px,transparent 1.9px),
-        radial-gradient(circle at 93% 56%,rgba(99,173,255,.38) 0 1px,transparent 1.8px);
+        radial-gradient(circle at 7% 16%,rgba(255,255,255,.68) 0 1px,transparent 1.9px),
+        radial-gradient(circle at 15% 67%,rgba(220,30,45,.48) 0 1px,transparent 1.8px),
+        radial-gradient(circle at 24% 31%,rgba(255,255,255,.52) 0 1.3px,transparent 2px),
+        radial-gradient(circle at 33% 84%,rgba(190,20,35,.42) 0 1px,transparent 1.8px),
+        radial-gradient(circle at 43% 20%,rgba(255,255,255,.58) 0 1px,transparent 1.9px),
+        radial-gradient(circle at 54% 71%,rgba(220,30,45,.42) 0 1.4px,transparent 2px),
+        radial-gradient(circle at 64% 35%,rgba(255,255,255,.5) 0 1px,transparent 1.8px),
+        radial-gradient(circle at 73% 78%,rgba(210,25,40,.4) 0 1.5px,transparent 2.1px),
+        radial-gradient(circle at 84% 17%,rgba(255,255,255,.62) 0 1px,transparent 1.9px),
+        radial-gradient(circle at 93% 56%,rgba(210,25,40,.4) 0 1px,transparent 1.8px);
     animation:particleDrift 18s ease-in-out infinite alternate;
 }
 @keyframes particleDrift{
-    0%{transform:translate3d(-4px,10px,0);opacity:.36}
-    50%{transform:translate3d(8px,-8px,0);opacity:.58}
-    100%{transform:translate3d(-7px,4px,0);opacity:.42}
+    0%{transform:translate3d(-4px,10px,0);opacity:.32}
+    50%{transform:translate3d(8px,-8px,0);opacity:.52}
+    100%{transform:translate3d(-7px,4px,0);opacity:.38}
 }
 @media(max-width:760px){
-    body::after{opacity:.36}
+    body::after{opacity:.32}
 }
 @media(prefers-reduced-motion:reduce){
     body::after{animation:none}
