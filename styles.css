@@ -2693,3 +2693,24 @@ body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;ba
 @media(max-width:760px){.project-grid{grid-template-columns:1fr;margin-top:42px}.project-card,.project-card-wide{grid-row:auto;min-height:330px}.industry-grid{grid-template-columns:1fr 1fr}.industry-card{min-height:145px;padding:18px}.industry-card b{font-size:17px;margin-top:22px}}
 @media(max-width:430px){.industry-grid{grid-template-columns:1fr}.project-card{min-height:300px}}
 @media(prefers-reduced-motion:reduce){.project-scan,.network-node,.access-beam{animation:none}}
+
+/* =========================================================
+   SERVICE DETAIL MODAL
+   ========================================================= */
+.service-detail-modal{position:fixed;inset:0;z-index:2100;display:grid;place-items:center;padding:24px;visibility:hidden;opacity:0;pointer-events:none;transition:opacity .3s ease,visibility .3s ease}
+.service-detail-modal.open{visibility:visible;opacity:1;pointer-events:auto}
+.service-detail-backdrop{position:absolute;inset:0;background:rgba(2,4,7,.78);backdrop-filter:blur(16px)}
+.service-detail-card{position:relative;width:min(760px,100%);padding:42px;border:1px solid rgba(255,255,255,.13);border-radius:26px;background:linear-gradient(145deg,rgba(17,23,31,.99),rgba(6,9,13,.99));box-shadow:0 35px 120px rgba(0,0,0,.58);transform:translateY(22px) scale(.97);transition:transform .4s var(--motion-ease)}
+.service-detail-modal.open .service-detail-card{transform:none}
+.service-detail-close{position:absolute;top:18px;right:20px;width:42px;height:42px;border:1px solid rgba(255,255,255,.12);border-radius:50%;background:rgba(255,255,255,.05);color:#fff;font-size:24px;cursor:pointer}
+.service-detail-card h2{max-width:620px;margin:12px 0 14px;font-size:clamp(38px,6vw,64px);line-height:.95;letter-spacing:-.055em}
+.service-detail-card>p{max-width:610px;margin:0;color:rgba(255,255,255,.62);line-height:1.8;font-size:14px}
+.service-detail-list{display:grid;gap:8px;margin:28px 0}
+.service-detail-item{display:grid;grid-template-columns:38px 1fr 20px;align-items:center;gap:12px;padding:17px 0;border-top:1px solid rgba(255,255,255,.09);color:#e8edf4}
+.service-detail-item span{font:600 9px ui-monospace,SFMono-Regular,monospace;color:#687587}
+.service-detail-item b{font-size:14px;font-weight:500}.service-detail-item em{font-style:normal;color:#7d8da3;transition:transform .25s ease}.service-detail-item:hover em{transform:translate(3px,-3px);color:#fff}
+.service-detail-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.service-detail-actions .button{cursor:pointer}
+body.modal-open{overflow:hidden}
+@media(max-width:760px){.service-detail-modal{padding:12px}.service-detail-card{padding:30px 20px 24px;border-radius:21px}.service-detail-card h2{font-size:42px}.service-detail-actions{flex-direction:column}.service-detail-actions .button{width:100%}}
+@media(prefers-reduced-motion:reduce){.service-detail-modal,.service-detail-card{transition:none}}
