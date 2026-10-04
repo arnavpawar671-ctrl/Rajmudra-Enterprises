@@ -3145,3 +3145,39 @@ body.modal-open{overflow:hidden}
     }
 }
 
+
+
+/* =========================================================
+   FLOATING PARTICLES — SUBTLE ATMOSPHERIC FIELD
+   ========================================================= */
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    pointer-events:none;
+    opacity:.58;
+    background-image:
+        radial-gradient(circle at 8% 18%,rgba(180,220,255,.48) 0 1px,transparent 1.8px),
+        radial-gradient(circle at 18% 72%,rgba(180,220,255,.34) 0 1px,transparent 1.8px),
+        radial-gradient(circle at 27% 34%,rgba(180,220,255,.42) 0 1.5px,transparent 2px),
+        radial-gradient(circle at 38% 82%,rgba(180,220,255,.3) 0 1px,transparent 1.8px),
+        radial-gradient(circle at 49% 22%,rgba(210,235,255,.42) 0 1px,transparent 1.8px),
+        radial-gradient(circle at 58% 64%,rgba(180,220,255,.3) 0 1.4px,transparent 2px),
+        radial-gradient(circle at 69% 30%,rgba(180,220,255,.38) 0 1px,transparent 1.8px),
+        radial-gradient(circle at 78% 78%,rgba(180,220,255,.32) 0 1.5px,transparent 2px),
+        radial-gradient(circle at 88% 18%,rgba(210,235,255,.42) 0 1px,transparent 1.8px),
+        radial-gradient(circle at 94% 56%,rgba(180,220,255,.3) 0 1px,transparent 1.8px);
+    animation:particleDrift 18s ease-in-out infinite alternate;
+}
+@keyframes particleDrift{
+    0%{transform:translate3d(0,10px,0);opacity:.38}
+    50%{transform:translate3d(10px,-8px,0);opacity:.62}
+    100%{transform:translate3d(-8px,4px,0);opacity:.44}
+}
+@media(max-width:760px){
+    body::after{opacity:.42;background-size:auto}
+}
+@media(prefers-reduced-motion:reduce){
+    body::after{animation:none}
+}
