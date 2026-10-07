@@ -2448,3 +2448,113 @@ button:focus-visible {
     .hero::before,.hero::after,.hero .hero-title span,.hero .button::after,.hero .hero-visual::before,
     .hero .hero-content,.hero .hero-visual,.hero .hero-meta,.hero .hero-label,.hero .hero-description{animation:none!important}
 }
+
+/* =========================================================
+   CINEMATIC SCROLL EXPERIENCE 2.0
+   ========================================================= */
+.scroll-cinema-field{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    pointer-events:none;
+    overflow:hidden;
+    opacity:.5;
+}
+.scroll-cinema-field::before{
+    content:"";
+    position:absolute;
+    inset:-15%;
+    background:
+      radial-gradient(circle at 20% var(--scroll-glow-y,50%),rgba(215,25,47,.12),transparent 28%),
+      radial-gradient(circle at 82% calc(100% - var(--scroll-glow-y,50%)),rgba(255,255,255,.055),transparent 24%);
+    transition:background-position .5s ease;
+}
+.scroll-cinema-trail{
+    position:absolute;
+    width:1px;
+    height:38vh;
+    top:-45vh;
+    background:linear-gradient(180deg,transparent,rgba(255,255,255,.35),rgba(215,25,47,.9),transparent);
+    box-shadow:0 0 20px rgba(215,25,47,.4);
+    animation:scrollTrail 8s cubic-bezier(.22,1,.36,1) infinite;
+}
+.scroll-cinema-trail:nth-child(1){left:14%;animation-delay:-2s}
+.scroll-cinema-trail:nth-child(2){left:48%;height:28vh;animation-delay:-5s}
+.scroll-cinema-trail:nth-child(3){left:82%;height:44vh;animation-delay:-7s}
+@keyframes scrollTrail{
+    0%{transform:translateY(0);opacity:0}
+    15%{opacity:.45}
+    55%{opacity:.18}
+    100%{transform:translateY(190vh);opacity:0}
+}
+[data-cinema-reveal]{
+    opacity:0;
+    transform:translate3d(0,38px,0) scale(.985);
+    filter:blur(7px);
+    transition:
+      opacity .9s var(--ease),
+      transform 1s var(--ease),
+      filter .9s ease;
+}
+[data-cinema-reveal].is-cinema-visible{
+    opacity:1;
+    transform:none;
+    filter:none;
+}
+[data-cinema-reveal][data-cinema-depth="left"]{transform:translate3d(-42px,18px,0) scale(.985)}
+[data-cinema-reveal][data-cinema-depth="right"]{transform:translate3d(42px,18px,0) scale(.985)}
+[data-cinema-reveal].is-cinema-visible[data-cinema-depth="left"],
+[data-cinema-reveal].is-cinema-visible[data-cinema-depth="right"]{transform:none}
+[data-cinema-stagger]{
+    transition-delay:calc(var(--cinema-index,0) * 75ms);
+}
+.cinema-section-active{
+    --section-red-intensity:1;
+}
+.cinema-section-active .section-number{
+    text-shadow:0 0 18px rgba(215,25,47,.45);
+    transition:text-shadow .5s ease;
+}
+.cinema-section-active .solution-visual,
+.cinema-section-active .project-visual,
+.cinema-section-active .featured-image{
+    box-shadow:0 0 55px rgba(215,25,47,.08);
+    transition:box-shadow .7s ease;
+}
+[data-cinema-parallax]{
+    will-change:transform;
+    transition:transform .15s linear;
+}
+.cinema-progress{
+    position:fixed;
+    left:0;
+    top:0;
+    width:100%;
+    height:2px;
+    z-index:10001;
+    pointer-events:none;
+    background:rgba(255,255,255,.035);
+}
+.cinema-progress span{
+    display:block;
+    width:0;
+    height:100%;
+    transform-origin:left;
+    background:linear-gradient(90deg,var(--red-dark),var(--red),#fff,var(--red));
+    box-shadow:0 0 14px rgba(215,25,47,.55);
+}
+@media(max-width:760px){
+    .scroll-cinema-field{opacity:.22}
+    .scroll-cinema-trail{display:none}
+    [data-cinema-reveal]{transform:translateY(24px) scale(.99);filter:blur(4px)}
+    [data-cinema-reveal][data-cinema-depth="left"],
+    [data-cinema-reveal][data-cinema-depth="right"]{transform:translateY(24px) scale(.99)}
+}
+@media(prefers-reduced-motion:reduce){
+    .scroll-cinema-field,.cinema-progress{display:none}
+    [data-cinema-reveal],
+    [data-cinema-reveal][data-cinema-depth="left"],
+    [data-cinema-reveal][data-cinema-depth="right"]{
+        opacity:1;transform:none;filter:none;transition:none;
+    }
+}
