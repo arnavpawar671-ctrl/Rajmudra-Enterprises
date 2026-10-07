@@ -3464,3 +3464,118 @@ body{
     .grand-welcome-content,.grand-welcome-eyebrow,.grand-welcome h1,.grand-welcome-tagline,.grand-welcome-enter,.grand-welcome-status{opacity:1}
     .grand-welcome-line{width:min(300px,55vw)}
 }
+
+
+/* =========================================================
+   GRAND WELCOME → HERO TRANSITION
+   ========================================================= */
+
+.grand-welcome{
+    clip-path:circle(150% at 50% 48%);
+    transition:
+        opacity 1.05s cubic-bezier(.22,1,.36,1),
+        visibility 1.05s ease,
+        transform 1.05s cubic-bezier(.22,1,.36,1),
+        clip-path 1.15s cubic-bezier(.76,0,.18,1),
+        filter 1.05s ease;
+    will-change:opacity,transform,clip-path,filter;
+}
+
+.grand-welcome.is-leaving{
+    opacity:0;
+    transform:scale(1.045);
+    filter:blur(7px);
+    clip-path:circle(0% at 50% 48%);
+}
+
+.grand-welcome.is-leaving .grand-welcome-content{
+    transform:scale(1.08);
+    opacity:0;
+    filter:blur(4px);
+    transition:
+        transform .85s cubic-bezier(.22,1,.36,1),
+        opacity .65s ease,
+        filter .65s ease;
+}
+
+.grand-welcome.is-leaving .grand-welcome-logo-ring{
+    animation:welcomeExitRing .85s cubic-bezier(.22,1,.36,1) forwards;
+}
+
+.grand-welcome.is-leaving .grand-welcome-glow{
+    animation:none;
+    opacity:0;
+    transform:scale(1.35);
+    transition:opacity .55s ease,transform .9s ease;
+}
+
+.grand-welcome.is-leaving .grand-welcome-grid{
+    animation:none;
+    opacity:0;
+    transform:perspective(800px) rotateX(62deg) translateY(8%) scale(1.08);
+    transition:opacity .55s ease,transform .9s ease;
+}
+
+body.welcome-active .site-header,
+body.welcome-active main,
+body.welcome-active footer,
+body.welcome-active .mobile-action-bar{
+    opacity:.92;
+    filter:brightness(.9);
+    transition:opacity 1s ease,filter 1s ease;
+}
+
+body.welcome-exiting .site-header,
+body.welcome-exiting main,
+body.welcome-exiting footer,
+body.welcome-exiting .mobile-action-bar{
+    opacity:1;
+    filter:none;
+    transition:opacity .9s cubic-bezier(.22,1,.36,1),filter .9s ease;
+}
+
+body.welcome-exiting .hero{
+    animation:heroArrival 1.05s cubic-bezier(.22,1,.36,1) both;
+}
+
+@keyframes heroArrival{
+    0%{opacity:.75;transform:scale(1.018)}
+    100%{opacity:1;transform:scale(1)}
+}
+
+@keyframes welcomeExitRing{
+    to{transform:scale(1.28);opacity:0}
+}
+
+@media(max-width:760px){
+    .grand-welcome{
+        clip-path:circle(155% at 50% 46%);
+    }
+
+    .grand-welcome.is-leaving{
+        clip-path:circle(0% at 50% 46%);
+    }
+}
+
+@media(prefers-reduced-motion:reduce){
+    .grand-welcome,
+    .grand-welcome.is-leaving,
+    .grand-welcome.is-leaving .grand-welcome-content{
+        transition:none;
+        animation:none;
+        filter:none;
+    }
+
+    .grand-welcome.is-leaving{
+        clip-path:none;
+        opacity:0;
+    }
+
+    body.welcome-active .site-header,
+    body.welcome-active main,
+    body.welcome-active footer,
+    body.welcome-active .mobile-action-bar{
+        opacity:1;
+        filter:none;
+    }
+}
