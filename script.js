@@ -1115,3 +1115,100 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 })();
+
+/* =====================================================
+   CINEMATIC VISUAL ENGINE — DEPTH + ENERGY + HUD
+   ===================================================== */
+(() => {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return;
+
+    const field = document.createElement("div");
+    field.className = "visual-energy-field";
+    field.setAttribute("aria-hidden","true");
+    for (let i=0;i<7;i++) {
+        const line=document.createElement("span");
+        line.className="visual-energy-line";
+        line.style.setProperty("--energy-angle",(-8+i*2.6)+"deg");
+        line.style.setProperty("--energy-duration",(9+i*.8)+"s");
+        line.style.setProperty("--energy-delay",(-i*1.7)+"s");
+        field.appendChild(line);
+    }
+    document.body.appendChild(field);
+
+    const hud=document.createElement("div");
+    hud.className="visual-hud";
+    hud.setAttribute("aria-hidden","true");
+    const dot=document.createElement("span");
+    dot.className="visual-hud-dot";
+    dot.style.top="0%";
+    const label=document.createElement("span");
+    label.className="visual-hud-label";
+    label.textContent="RAJMUDRA / SYSTEM";
+    hud.append(dot,label);
+    document.body.appendChild(hud);
+
+    const depthTargets=document.querySelectorAll(
+        ".hero-grid, .hero-overlay, .section-title, .section-description, .solution-visual, .project-card, .about-card, .contact-card, .footer-inner"
+    );
+    depthTargets.forEach((el,i)=>{
+        el.setAttribute("data-visual-depth","");
+        el.style.setProperty("--depth-factor",String((i%5+1)*.045));
+    });
+
+    document.querySelectorAll(
+        ".solution-card, .project-card, .about-card, .product-card, .service-card, .stat, .contact-card"
+    ).forEach(el=>el.setAttribute("data-visual-glow",""));
+
+    document.querySelectorAll(".hero-visual, .solution-visual, .project-visual, .featured-image, .about-image").forEach(el=>{
+        if(!el.querySelector(".visual-scan")){
+            const scan=document.createElement("span");
+            scan.className="visual-scan";
+            scan.setAttribute("aria-hidden","true");
+            el.appendChild(scan);
+        }
+    });
+
+    let ticking=false;
+    const update=()=>{
+        if(ticking)return;
+        ticking=true;
+        requestAnimationFrame(()=>{
+            const h=window.innerHeight;
+            document.querySelectorAll("[data-visual-depth]").forEach(el=>{
+                const r=el.getBoundingClientRect();
+                if(r.bottom<0||r.top>h) return;
+                const center=r.top+r.height/2;
+                const offset=(center-h/2)/h;
+                const factor=Number(el.style.getPropertyValue("--depth-factor"))||.05;
+                el.style.setProperty("--depth-shift",(offset*factor*-100)+"px");
+            });
+
+            const sections=[...document.querySelectorAll("main section")];
+            if(sections.length){
+                let active=0,best=Infinity;
+                sections.forEach((s,i)=>{
+                    const r=s.getBoundingClientRect();
+                    const d=Math.abs(r.top-h*.42);
+                    if(d<best){best=d;active=i;}
+                });
+                dot.style.top=((active/Math.max(1,sections.length-1))*100)+"%";
+            }
+            ticking=false;
+        });
+    };
+    window.addEventListener("scroll",update,{passive:true});
+    window.addEventListener("resize",update,{passive:true});
+    update();
+
+    document.addEventListener("pointermove",e=>{
+        const cards=document.querySelectorAll("[data-visual-glow]");
+        cards.forEach(card=>{
+            const r=card.getBoundingClientRect();
+            if(e.clientX>=r.left&&e.clientX<=r.right&&e.clientY>=r.top&&e.clientY<=r.bottom){
+                card.style.setProperty("--glow-x",((e.clientX-r.left)/r.width*100)+"%");
+                card.style.setProperty("--glow-y",((e.clientY-r.top)/r.height*100)+"%");
+            }
+        });
+    },{passive:true});
+})();
