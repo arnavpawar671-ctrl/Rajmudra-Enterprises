@@ -1075,3 +1075,43 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }, { once: true });
 })();
+
+
+/* =====================================================
+   GRAND WELCOME → HERO TRANSITION CONTROLLER
+   ===================================================== */
+(() => {
+    const welcome = document.getElementById("grandWelcome");
+    const enter = document.getElementById("grandWelcomeEnter");
+    if (!welcome) return;
+
+    document.body.classList.add("welcome-active");
+
+    let closed = false;
+
+    const leaveWelcome = () => {
+        if (closed) return;
+        closed = true;
+
+        // Start the hero arrival at the exact moment the intro begins to dissolve.
+        document.body.classList.add("welcome-exiting");
+        welcome.classList.add("is-leaving");
+        welcome.setAttribute("aria-hidden", "true");
+
+        window.setTimeout(() => {
+            document.body.classList.remove("welcome-active", "welcome-exiting");
+            welcome.remove();
+        }, 1180);
+    };
+
+    enter?.addEventListener("click", leaveWelcome);
+
+    // Cinematic by default, but never blocks the visitor.
+    window.setTimeout(leaveWelcome, 4200);
+
+    document.addEventListener("keydown", event => {
+        if (event.key === "Enter" || event.key === "Escape") {
+            leaveWelcome();
+        }
+    });
+})();
