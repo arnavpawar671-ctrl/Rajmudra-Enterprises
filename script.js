@@ -1212,3 +1212,27 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     },{passive:true});
 })();
+
+/* HERO 2.0 — dynamic spotlight + command label */
+(() => {
+    const hero=document.querySelector(".hero");
+    if(!hero || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const label=document.createElement("div");
+    label.className="hero-command-label";
+    label.textContent="SECURE SYSTEM / ONLINE";
+    label.setAttribute("aria-hidden","true");
+    hero.appendChild(label);
+    hero.addEventListener("pointermove",e=>{
+        const r=hero.getBoundingClientRect();
+        const x=((e.clientX-r.left)/r.width-.5);
+        const y=((e.clientY-r.top)/r.height-.5);
+        hero.style.setProperty("--hero-mx",(x*100).toFixed(2)+"%");
+        hero.style.setProperty("--hero-my",(y*100).toFixed(2)+"%");
+        const visual=hero.querySelector(".hero-visual");
+        if(visual) visual.style.transform="perspective(1200px) rotateX("+(-y*3.2)+"deg) rotateY("+(x*4.2)+"deg)";
+    },{passive:true});
+    hero.addEventListener("pointerleave",()=>{
+        const visual=hero.querySelector(".hero-visual");
+        if(visual) visual.style.transform="";
+    });
+})();

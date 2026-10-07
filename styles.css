@@ -2340,3 +2340,111 @@ button:focus-visible {
     .visual-scan{animation:none}
     .motion-shine::before{display:none}
 }
+
+/* =========================================================
+   HERO 2.0 — CINEMATIC COMMAND CENTER
+   ========================================================= */
+.hero{isolation:isolate;overflow:hidden}
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:-20%;
+    z-index:-2;
+    pointer-events:none;
+    background:
+      radial-gradient(circle at 52% 48%,rgba(215,25,47,.18),transparent 24%),
+      radial-gradient(circle at 82% 28%,rgba(255,255,255,.07),transparent 20%);
+    animation:heroAtmosphere 10s ease-in-out infinite alternate;
+}
+.hero::after{
+    content:"";
+    position:absolute;
+    top:-20%;
+    left:-25%;
+    width:150%;
+    height:1px;
+    z-index:2;
+    pointer-events:none;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.75),rgba(215,25,47,.9),rgba(255,255,255,.35),transparent);
+    box-shadow:0 0 24px rgba(215,25,47,.55);
+    opacity:.45;
+    animation:heroBeam 7s cubic-bezier(.22,1,.36,1) infinite;
+}
+@keyframes heroAtmosphere{0%{transform:scale(1) translate3d(-1%,0,0)}100%{transform:scale(1.08) translate3d(2%,-1%,0)}}
+@keyframes heroBeam{0%{transform:translateY(0) rotate(-8deg);opacity:0}18%{opacity:.45}55%{transform:translateY(120vh) rotate(-8deg);opacity:.18}100%{transform:translateY(145vh) rotate(-8deg);opacity:0}}
+.hero-grid{will-change:transform}
+.hero .hero-content,.hero .hero-visual{animation:heroContentArrival 1.1s cubic-bezier(.22,1,.36,1) both}
+.hero .hero-visual{animation-delay:.12s}
+@keyframes heroContentArrival{from{opacity:0;transform:translateY(18px) scale(.985);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+.hero .hero-title{
+    text-shadow:0 0 38px rgba(215,25,47,.09);
+}
+.hero .hero-title span{
+    display:inline-block;
+    animation:heroWordReveal .9s cubic-bezier(.22,1,.36,1) both;
+}
+.hero .hero-title span:nth-child(2){animation-delay:.08s}
+@keyframes heroWordReveal{from{opacity:0;transform:translateY(24px);filter:blur(5px)}to{opacity:1;transform:none;filter:none}}
+.hero .button{
+    position:relative;
+    overflow:hidden;
+    isolation:isolate;
+}
+.hero .button::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.22) 48%,transparent 66%);
+    transform:translateX(-120%);
+    animation:heroButtonShine 5.5s 1.5s ease-in-out infinite;
+    pointer-events:none;
+}
+@keyframes heroButtonShine{0%,55%{transform:translateX(-120%)}75%,100%{transform:translateX(120%)}}
+.hero .hero-visual{transform-style:preserve-3d}
+.hero .hero-visual::before{
+    content:"";
+    position:absolute;
+    inset:8%;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:50%;
+    box-shadow:0 0 80px rgba(215,25,47,.13),inset 0 0 60px rgba(215,25,47,.05);
+    animation:heroOrbit 12s linear infinite;
+    pointer-events:none;
+}
+@keyframes heroOrbit{to{transform:rotate(360deg) scale(1.02)}}
+.hero .hero-meta,
+.hero .hero-label,
+.hero .hero-description{
+    animation:heroMetaReveal .8s .35s cubic-bezier(.22,1,.36,1) both;
+}
+@keyframes heroMetaReveal{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.hero-command-label{
+    position:absolute;
+    top:24px;
+    right:24px;
+    z-index:5;
+    color:rgba(255,255,255,.38);
+    font:600 8px/1 var(--body);
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    pointer-events:none;
+}
+.hero-command-label::before{
+    content:"";
+    display:inline-block;
+    width:5px;height:5px;border-radius:50%;
+    margin-right:8px;
+    background:var(--red);
+    box-shadow:0 0 12px rgba(215,25,47,.9);
+    animation:commandPulse 1.8s ease-in-out infinite;
+}
+@keyframes commandPulse{50%{opacity:.35;transform:scale(.7)}}
+@media(max-width:760px){
+    .hero::after{animation-duration:9s}
+    .hero-command-label{top:16px;right:14px;font-size:7px}
+    .hero .hero-visual::before{inset:4%}
+}
+@media(prefers-reduced-motion:reduce){
+    .hero::before,.hero::after,.hero .hero-title span,.hero .button::after,.hero .hero-visual::before,
+    .hero .hero-content,.hero .hero-visual,.hero .hero-meta,.hero .hero-label,.hero .hero-description{animation:none!important}
+}
