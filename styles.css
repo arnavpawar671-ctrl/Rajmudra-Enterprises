@@ -526,7 +526,7 @@ button:focus-visible {
         var(--red);
 
     box-shadow:
-        0 0 10px rgba(99, 173, 255, .6);
+        0 0 10px rgba(215, 25, 47, .6);
 
     transition:
         width .3s var(--ease);
@@ -1375,7 +1375,7 @@ button:focus-visible {
         var(--red);
 
     box-shadow:
-        0 0 10px rgba(99,173,255,.5);
+        0 0 10px rgba(215,25,47,.5);
 }
 
 .solution-link {
@@ -1811,7 +1811,7 @@ button:focus-visible {
     inset: 0;
 
     border:
-        1px solid rgba(99,173,255,.22);
+        1px solid rgba(215,25,47,.22);
 
     border-radius: 50%;
 
@@ -1854,7 +1854,7 @@ button:focus-visible {
     background:
         radial-gradient(
             circle,
-            rgba(99,173,255,.12),
+            rgba(215,25,47,.12),
             transparent 70%
         );
 }
