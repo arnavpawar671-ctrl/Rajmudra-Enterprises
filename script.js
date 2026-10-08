@@ -1235,3 +1235,33 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("scroll",update,{passive:true});
     update();
 })();
+
+/* =====================================================
+   MOBILE EFFICIENCY 3.0
+   ===================================================== */
+(() => {
+    const mobile=window.matchMedia("(max-width:760px)");
+    if(!mobile.matches) return;
+
+    // Keep expensive visual systems disabled on phones after resize too.
+    const disableHeavyVisuals=()=>{
+        document.querySelectorAll(
+            ".visual-energy-field,.scroll-cinema-field,.visual-hud,.motion-orb,.cursor-ring"
+        ).forEach(el=>el.remove());
+    };
+    disableHeavyVisuals();
+    mobile.addEventListener?.("change",e=>{if(e.matches) disableHeavyVisuals();});
+
+    // Use a single lightweight viewport observer for reveal classes.
+    const targets=document.querySelectorAll("[data-cinema-reveal],[data-motion-reveal]");
+    if(!targets.length) return;
+    const observer=new IntersectionObserver(entries=>{
+        for(const entry of entries){
+            if(entry.isIntersecting){
+                entry.target.classList.add("is-cinema-visible","is-visible","visible");
+                observer.unobserve(entry.target);
+            }
+        }
+    },{rootMargin:"0px 0px -6% 0px",threshold:.04});
+    targets.forEach(el=>observer.observe(el));
+})();
