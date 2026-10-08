@@ -55,12 +55,12 @@ body {
     background:
         radial-gradient(
             circle at 80% 0%,
-            rgba(39, 120, 201, .075),
+            rgba(215, 25, 47, .075),
             transparent 32%
         ),
         radial-gradient(
             circle at 10% 80%,
-            rgba(39, 120, 201, .035),
+            rgba(215, 25, 47, .035),
             transparent 30%
         ),
         var(--bg);
@@ -102,7 +102,7 @@ img {
 }
 
 ::selection {
-    background: rgba(99, 173, 255, .25);
+    background: rgba(215, 25, 47, .25);
     color: #fff;
 }
 
@@ -280,7 +280,7 @@ button:focus-visible {
         );
 
     box-shadow:
-        0 0 18px rgba(99, 173, 255, .65);
+        0 0 18px rgba(215, 25, 47, .65);
 }
 
 
@@ -309,14 +309,14 @@ button:focus-visible {
     top: -100px;
     right: -240px;
 
-    background: #1680e8;
+    background: #d7192f;
 }
 
 .ambient-two {
     bottom: 10%;
     left: -250px;
 
-    background: #1768b2;
+    background: #9f1020;
 }
 
 
@@ -526,7 +526,7 @@ button:focus-visible {
         var(--red);
 
     box-shadow:
-        0 0 10px rgba(99, 173, 255, .6);
+        0 0 10px rgba(215, 25, 47, .6);
 
     transition:
         width .3s var(--ease);
@@ -1375,7 +1375,7 @@ button:focus-visible {
         var(--red);
 
     box-shadow:
-        0 0 10px rgba(99,173,255,.5);
+        0 0 10px rgba(215,25,47,.5);
 }
 
 .solution-link {
@@ -1811,7 +1811,7 @@ button:focus-visible {
     inset: 0;
 
     border:
-        1px solid rgba(99,173,255,.22);
+        1px solid rgba(215,25,47,.22);
 
     border-radius: 50%;
 
@@ -1854,7 +1854,7 @@ button:focus-visible {
     background:
         radial-gradient(
             circle,
-            rgba(99,173,255,.12),
+            rgba(215,25,47,.12),
             transparent 70%
         );
 }
