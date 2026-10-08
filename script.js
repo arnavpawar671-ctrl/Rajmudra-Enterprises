@@ -1213,3 +1213,25 @@ document.addEventListener("DOMContentLoaded", () => {
     },{passive:true});
 })();
 
+
+/* =====================================================
+   CINEMATIC NAVIGATION 2.0
+   ===================================================== */
+(() => {
+    const header=document.querySelector(".site-header");
+    if(!header) return;
+
+    const line=document.createElement("span");
+    line.className="header-scroll-line";
+    line.setAttribute("aria-hidden","true");
+    header.appendChild(line);
+
+    const update=()=>{
+        const y=window.scrollY||0;
+        document.body.classList.toggle("nav-scrolled",y>24);
+        const max=Math.max(1,document.documentElement.scrollHeight-window.innerHeight);
+        line.style.transform="scaleX("+Math.min(1,y/max)+")";
+    };
+    window.addEventListener("scroll",update,{passive:true});
+    update();
+})();
