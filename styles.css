@@ -2196,8 +2196,11 @@ button:focus-visible {
    ========================================================= */
 
 @media (max-width: 1000px) {
-
     .desktop-nav {
+        gap: 18px;
+        font-size: 10px;
+    }
+}
 
 /* =========================================================
    CINEMATIC VISUAL ENGINE — RED / WHITE
