@@ -4045,3 +4045,206 @@ h1, h2, h3, h4,
         margin-top: 22px;
     }
 }
+
+
+/* MOBILE SECTION FIT — prevent individual sections/cards being clipped
+   Target: Galaxy S24 and iPhone 14 Pro portrait + landscape. */
+@media (max-width: 760px) {
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: clip;
+    }
+
+    main,
+    main > section,
+    .hero,
+    .about-section,
+    .contact-section,
+    .projects-showcase {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        overflow-x: clip;
+        box-sizing: border-box;
+    }
+
+    .hero,
+    .about-section,
+    .contact-section {
+        min-height: 0 !important;
+        height: auto !important;
+        display: block !important;
+        padding-top: max(92px, calc(78px + env(safe-area-inset-top))) !important;
+        padding-bottom: 42px !important;
+    }
+
+    .hero-background,
+    .about-background,
+    .contact-background {
+        position: absolute;
+        inset: 0;
+        min-height: 100%;
+        pointer-events: none;
+    }
+
+    .hero-image,
+    .about-image,
+    .contact-image {
+        position: absolute;
+        inset: 0;
+        min-height: 100%;
+        transform: none !important;
+        will-change: auto;
+    }
+
+    .about-container,
+    .contact-container,
+    .hero-content,
+    .container {
+        min-width: 0;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .about-container,
+    .contact-container {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .about-copy,
+    .contact-main,
+    .contact-content,
+    .section-intro-grid,
+    .section-heading,
+    .section-title,
+    .section-description {
+        min-width: 0;
+        max-width: 100%;
+        overflow-wrap: anywhere;
+    }
+
+    .section,
+    section:not(.hero) {
+        padding-top: 44px !important;
+        padding-bottom: 44px !important;
+    }
+
+    .solution-list,
+    .solution-grid,
+    .project-grid,
+    .product-grid,
+    .service-grid,
+    .about-grid,
+    .approach-grid {
+        grid-template-columns: minmax(0, 1fr) !important;
+        min-width: 0;
+    }
+
+    .solution-card,
+    .project-card,
+    .product-card,
+    .service-card,
+    .about-card,
+    .contact-card {
+        min-width: 0;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .product-large {
+        grid-row: auto !important;
+    }
+
+    .project-art,
+    .product-art,
+    .solution-visual,
+    .service-visual,
+    .featured-image {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .project-copy,
+    .product-content,
+    .solution-content,
+    .service-content,
+    .about-content,
+    .contact-card,
+    .footer-column {
+        min-width: 0;
+        overflow-wrap: anywhere;
+    }
+
+    .hero-actions,
+    .contact-actions {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .hero-actions .button,
+    .contact-actions .button {
+        min-width: 0;
+        max-width: 100%;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    .footer-top,
+    .footer-middle,
+    .footer-bottom {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .footer-bottom {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    input,
+    select,
+    textarea {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 430px) {
+    .hero-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+    .hero-stats .stat {
+        min-width: 0;
+        padding: 13px 10px;
+    }
+
+    .section-intro-grid {
+        gap: 10px !important;
+    }
+
+    .section-title {
+        font-size: clamp(1.8rem, 8vw, 2.4rem) !important;
+    }
+
+    .hero-title,
+    .hero h1 {
+        letter-spacing: -.045em;
+        overflow-wrap: normal;
+    }
+}
+
+@media (max-width: 760px) and (orientation: landscape) {
+    .hero,
+    .about-section,
+    .contact-section {
+        padding-top: 88px !important;
+        padding-bottom: 30px !important;
+    }
+}
