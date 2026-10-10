@@ -3519,7 +3519,6 @@ h1, h2, h3, h4,
     .product-grid,
     .service-grid,
     .about-grid,
-    .contact-grid,
     .approach-grid {
         display: grid !important;
         grid-template-columns: minmax(0, 1fr) !important;
@@ -3743,5 +3742,98 @@ h1, h2, h3, h4,
             animation-iteration-count: 1 !important;
             transition-duration: .01ms !important;
         }
+    }
+}
+
+
+/* MOBILE QA PATCH — use the real footer/contact component names */
+@media (max-width: 760px) {
+    .footer-top {
+        display: flex !important;
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 14px !important;
+        padding-bottom: 24px;
+    }
+
+    .footer-logo {
+        display: block;
+        width: min(220px, 72vw) !important;
+        max-width: 100%;
+        height: auto !important;
+        object-fit: contain;
+        object-position: left center;
+    }
+
+    .footer-middle {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 22px !important;
+        padding-top: 24px;
+        padding-bottom: 24px;
+    }
+
+    .footer-column {
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        overflow-wrap: anywhere;
+    }
+
+    .footer-column > span {
+        margin-bottom: 2px;
+        color: #fff;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: .15em;
+        text-transform: uppercase;
+    }
+
+    .footer-column a,
+    .footer-column p {
+        max-width: 100%;
+        font-size: 13px;
+        line-height: 1.75;
+        overflow-wrap: anywhere;
+    }
+
+    .footer-bottom {
+        display: flex !important;
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 12px !important;
+        padding-top: 18px;
+    }
+
+    .footer-bottom > * {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+    }
+
+    .contact-container,
+    .contact-main {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .contact-title {
+        font-size: clamp(2rem, 8.5vw, 3rem) !important;
+        line-height: 1.08 !important;
+        overflow-wrap: anywhere;
+    }
+
+    .contact-actions {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 10px;
+    }
+
+    .contact-actions .button {
+        width: 100%;
+        min-height: 48px;
+        justify-content: center;
+        text-align: center;
     }
 }
