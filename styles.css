@@ -3837,3 +3837,211 @@ h1, h2, h3, h4,
         text-align: center;
     }
 }
+
+
+/* =========================================================
+   DEVICE IMAGE RELIABILITY — GALAXY S24 / IPHONE 14 PRO
+   These phones use a CSS viewport around 384–393px wide.
+   Use real img elements as well as the original background
+   layers so photos paint reliably in mobile Safari/Chrome.
+   ========================================================= */
+.hero-image,
+.about-image,
+.image-placeholder,
+.product-art {
+    overflow: hidden;
+    background-color: #17191f;
+}
+
+.hero-image > img,
+.about-image > img,
+.image-placeholder > img,
+.product-art > img {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    object-position: center;
+    opacity: 1;
+    visibility: visible;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    transform: none;
+    -webkit-transform: none;
+}
+
+.hero-image > img {
+    object-position: 58% center;
+}
+
+.image-placeholder > img,
+.product-art > img {
+    transition: transform .7s ease;
+}
+
+@media (max-width: 760px) {
+    .hero-image,
+    .about-image {
+        inset: 0;
+        min-height: 100%;
+        background-size: cover !important;
+    }
+
+    .hero-image > img {
+        object-position: 58% center;
+    }
+
+    .solution-visual {
+        position: relative;
+        display: block;
+        min-height: 210px;
+        height: clamp(210px, 62vw, 270px);
+        isolation: isolate;
+        background: #17191f;
+    }
+
+    .image-placeholder,
+    .solution-visual .image-placeholder {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        min-height: 0;
+        background-size: cover !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+    }
+
+    .image-placeholder > img {
+        z-index: 0;
+    }
+
+    .solution-visual::after {
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .visual-tag {
+        z-index: 2;
+    }
+
+    .product-card {
+        position: relative;
+        isolation: isolate;
+        min-height: 255px;
+        background: #17191f;
+    }
+
+    .product-art {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background-size: cover !important;
+        background-position: center !important;
+    }
+
+    .product-art > img {
+        z-index: 0;
+    }
+
+    .product-overlay {
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .product-content {
+        position: relative;
+        z-index: 2;
+    }
+
+    /* The mobile menu already contains a quote CTA; reclaim header space. */
+    .header-inner {
+        justify-content: space-between;
+    }
+
+    .header-cta {
+        display: none !important;
+    }
+
+    .menu-btn {
+        flex-shrink: 0;
+        min-width: 40px;
+        min-height: 40px;
+        touch-action: manipulation;
+    }
+
+    .mobile-nav {
+        max-height: calc(100dvh - 92px - env(safe-area-inset-top));
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .mobile-nav a {
+        min-height: 48px;
+    }
+
+    .hero,
+    .section,
+    section:not(.hero) {
+        max-width: 100%;
+    }
+
+    img {
+        -webkit-user-drag: none;
+    }
+}
+
+@media (min-width: 361px) and (max-width: 430px) {
+    .container {
+        width: calc(100% - 36px);
+    }
+
+    .hero-title,
+    .hero h1 {
+        font-size: clamp(2.35rem, 9.7vw, 2.85rem) !important;
+        overflow-wrap: normal;
+        word-break: normal;
+    }
+
+    .solution-visual {
+        height: 235px;
+    }
+
+    .product-card {
+        min-height: 265px;
+    }
+}
+
+@media (max-width: 360px) {
+    .container {
+        width: calc(100% - 28px);
+    }
+
+    .hero-title,
+    .hero h1 {
+        font-size: clamp(2.1rem, 9.5vw, 2.5rem) !important;
+    }
+
+    .solution-visual {
+        height: 205px;
+    }
+}
+
+@media (max-width: 760px) and (orientation: landscape) {
+    .hero {
+        padding-top: 100px !important;
+    }
+
+    .hero-image {
+        background-position: center 42%;
+    }
+
+    .hero-stats {
+        margin-top: 22px;
+    }
+}
