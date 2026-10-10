@@ -4248,3 +4248,222 @@ h1, h2, h3, h4,
         padding-bottom: 30px !important;
     }
 }
+
+
+/* =========================================================
+   MOBILE REFINEMENT — ABOUT / CONTACT / PAYMENTS (UPI)
+   Tuned for Galaxy S24, iPhone 14 Pro and narrow screens.
+   ========================================================= */
+@media (max-width: 760px) {
+    /* About Rajmudra: stack the story and proof points instead
+       of retaining the desktop two-column grid. */
+    #about.about-section {
+        display: block !important;
+        min-height: 0 !important;
+        padding: 58px 0 46px !important;
+    }
+
+    #about .about-container {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 28px !important;
+        width: 100%;
+        padding: 0;
+    }
+
+    #about .about-copy,
+    #about .about-points {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    #about .about-description {
+        max-width: 100%;
+        margin-top: 16px;
+        font-size: 14px;
+        line-height: 1.75;
+        overflow-wrap: anywhere;
+    }
+
+    #about .about-copy .button {
+        width: 100%;
+        min-height: 48px;
+        margin-top: 22px;
+        justify-content: center;
+    }
+
+    #about .about-points {
+        margin-top: 2px;
+    }
+
+    #about .about-point {
+        grid-template-columns: 28px minmax(0, 1fr);
+        gap: 12px;
+        padding: 17px 0;
+    }
+
+    #about .about-point strong {
+        font-size: 13px;
+        line-height: 1.45;
+        overflow-wrap: anywhere;
+    }
+
+    #about .about-point p {
+        font-size: 12px;
+        line-height: 1.65;
+        overflow-wrap: anywhere;
+    }
+
+    /* Contact: place contact information below the message and
+       make every action easy to tap without horizontal overflow. */
+    #contact.contact-section {
+        display: block !important;
+        min-height: 0 !important;
+        padding: 58px 0 44px !important;
+    }
+
+    #contact .contact-container {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+        align-items: stretch;
+        gap: 28px !important;
+        width: 100%;
+        padding: 0;
+    }
+
+    #contact .contact-main,
+    #contact .contact-details {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    #contact .contact-title {
+        margin-top: 14px;
+        font-size: clamp(2rem, 8.6vw, 2.8rem) !important;
+        line-height: 1.04 !important;
+        letter-spacing: -.045em;
+        overflow-wrap: anywhere;
+    }
+
+    #contact .contact-title span {
+        display: inline;
+        overflow-wrap: anywhere;
+    }
+
+    #contact .contact-description {
+        margin-top: 16px;
+        font-size: 14px;
+        line-height: 1.75;
+    }
+
+    #contact .contact-actions {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+        width: 100%;
+        gap: 10px;
+        margin-top: 22px;
+    }
+
+    #contact .contact-actions .button {
+        width: 100%;
+        min-width: 0;
+        min-height: 49px;
+        box-sizing: border-box;
+        padding: 12px 14px;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    #contact .contact-detail {
+        padding: 17px 0;
+    }
+
+    #contact .contact-detail p,
+    #contact .contact-detail a {
+        max-width: 100%;
+        font-size: 13px;
+        line-height: 1.75;
+        overflow-wrap: anywhere;
+        word-break: normal;
+    }
+
+    /* Payments / UPI: one card per row, less wasted space, and
+       long UPI IDs safely wrap on small phone widths. */
+    #payments.payments-section {
+        padding-top: 48px !important;
+        padding-bottom: 48px !important;
+    }
+
+    #payments .section-intro-grid {
+        margin-bottom: 0;
+    }
+
+    #payments .payment-grid {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 12px !important;
+        width: 100%;
+        margin-top: 24px;
+    }
+
+    #payments .payment-card {
+        display: grid !important;
+        grid-template-columns: 26px minmax(0, 1fr) !important;
+        align-items: start;
+        gap: 12px !important;
+        width: 100%;
+        min-width: 0;
+        min-height: 0;
+        box-sizing: border-box;
+        padding: 20px 16px;
+        border-radius: 14px;
+        overflow: hidden;
+    }
+
+    #payments .payment-card > div {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    #payments .payment-card h3 {
+        max-width: 100%;
+        margin-top: 10px;
+        font-size: clamp(1.15rem, 5.2vw, 1.5rem) !important;
+        line-height: 1.25 !important;
+        letter-spacing: -.025em;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+    #payments .payment-card p {
+        max-width: 100%;
+        margin-top: 12px;
+        font-size: 13px;
+        line-height: 1.75;
+        overflow-wrap: anywhere;
+    }
+
+    #payments .payment-index {
+        padding-top: 3px;
+    }
+}
+
+@media (max-width: 390px) {
+    #about .about-container,
+    #contact .contact-container,
+    #payments .container {
+        width: calc(100% - 28px) !important;
+    }
+
+    #payments .payment-card {
+        grid-template-columns: 22px minmax(0, 1fr) !important;
+        gap: 9px !important;
+        padding: 17px 13px;
+    }
+
+    #payments .payment-card h3 {
+        font-size: clamp(1.05rem, 5vw, 1.3rem) !important;
+    }
+}
